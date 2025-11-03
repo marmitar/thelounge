@@ -1,15 +1,15 @@
 import type {Database} from "sqlite3";
 
-import log from "../../log";
-import path from "path";
-import fs from "fs/promises";
-import Config from "../../config";
-import Msg, {Message} from "../../models/msg";
-import Chan, {Channel} from "../../models/chan";
-import Helper from "../../helper";
-import type {SearchableMessageStorage, DeletionRequest} from "./types";
-import Network from "../../models/network";
-import {SearchQuery, SearchResponse} from "../../../shared/types/storage";
+import log from "../../log.ts";
+import path from "node:path";
+import fs from "node:fs/promises";
+import Config from "../../config.ts";
+import Msg, {type Message} from "../../models/msg.ts";
+import Chan, {Channel} from "../../models/chan.ts";
+import Helper from "../../helper.ts";
+import type {SearchableMessageStorage, DeletionRequest} from "./types.ts";
+import type Network from "../../models/network.ts";
+import type {SearchQuery, SearchResponse} from "../../../shared/types/storage.ts";
 
 // TODO; type
 let sqlite3: any;

@@ -58,12 +58,12 @@
 </template>
 
 <script lang="ts">
-import {condensedTypes} from "../../shared/irc";
-import {ChanType} from "../../shared/types/chan";
-import {MessageType, SharedMsg} from "../../shared/types/msg";
-import eventbus from "../js/eventbus";
-import clipboard from "../js/clipboard";
-import socket from "../js/socket";
+import {condensedTypes} from "../../shared/irc.ts";
+import {ChanType} from "../../shared/types/chan.ts";
+import {MessageType, type SharedMsg} from "../../shared/types/msg.ts";
+import eventbus from "../js/eventbus.ts";
+import clipboard from "../js/clipboard.ts";
+import socket from "../js/socket.ts";
 import Message from "./Message.vue";
 import MessageCondensed from "./MessageCondensed.vue";
 import DateMarker from "./DateMarker.vue";
@@ -75,12 +75,12 @@ import {
 	onBeforeUpdate,
 	onMounted,
 	onUnmounted,
-	PropType,
+	type PropType,
 	ref,
 	watch,
 } from "vue";
-import {useStore} from "../js/store";
-import {ClientChan, ClientMessage, ClientNetwork, ClientLinkPreview} from "../js/types";
+import {useStore} from "../js/store.ts";
+import type {ClientChan, ClientMessage, ClientNetwork, ClientLinkPreview} from "../js/types.ts";
 
 type CondensedMessageContainer = {
 	type: "condensed";

@@ -1,14 +1,14 @@
-import constants from "./constants";
+import constants from "./constants.ts";
 
 import Mousetrap from "mousetrap";
-import {Textcomplete, StrategyProps} from "@textcomplete/core";
+import {Textcomplete, type StrategyProps} from "@textcomplete/core";
 import {TextareaEditor} from "@textcomplete/textarea";
 
 import fuzzy from "fuzzy";
 
 import emojiMap from "./helpers/simplemap.json";
-import {store} from "./store";
-import {ChanType} from "../../shared/types/chan";
+import {store} from "./store.ts";
+import {ChanType} from "../../shared/types/chan.ts";
 
 export default enableAutocomplete;
 

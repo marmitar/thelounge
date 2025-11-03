@@ -5,8 +5,8 @@
 // TODO: Fix this
 declare module "irc-framework" {
 	import {EventEmitter} from "eventemitter3";
-	// import { DuplexStream } from 'stream';
-	import Connection from "irc-framework/src/transports/websocket";
+	// import { DuplexStream } from "node:stream";
+	import type Connection from "irc-framework/src/transports/websocket.js";
 
 	type ConnectionOpts = {
 		connected: boolean;

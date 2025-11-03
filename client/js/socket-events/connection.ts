@@ -1,5 +1,5 @@
-import {store} from "../store";
-import socket from "../socket";
+import {store} from "../store.ts";
+import socket from "../socket.ts";
 
 socket.on("disconnect", handleDisconnect);
 socket.on("connect_error", handleDisconnect);

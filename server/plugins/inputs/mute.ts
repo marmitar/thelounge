@@ -1,12 +1,12 @@
-import Chan from "../../models/chan";
-import Network from "../../models/network";
-import {PluginInputHandler} from "./index";
+import type Chan from "../../models/chan.ts";
+import type Network from "../../models/network.ts";
+import type {PluginInputHandler} from "./index.ts";
 
-import Msg from "../../models/msg";
+import Msg from "../../models/msg.ts";
 
-import Client from "../../client";
-import {MessageType} from "../../../shared/types/msg";
-import {ChanType} from "../../../shared/types/chan";
+import type Client from "../../client.ts";
+import {MessageType} from "../../../shared/types/msg.ts";
+import {ChanType} from "../../../shared/types/chan.ts";
 
 const commands = ["mute", "unmute"];
 const allowDisconnected = true;

@@ -1,5 +1,5 @@
-import constants from "../constants";
-import socket from "../socket";
+import constants from "../constants.ts";
+import socket from "../socket.ts";
 
 socket.on("commands", function (commands) {
 	if (commands) {

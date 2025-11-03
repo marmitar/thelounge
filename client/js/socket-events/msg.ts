@@ -1,10 +1,10 @@
-import socket from "../socket";
-import {cleanIrcMessage} from "../../../shared/irc";
-import {store} from "../store";
-import {switchToChannel} from "../router";
-import {ClientChan, NetChan, ClientMessage} from "../types";
-import {SharedMsg, MessageType} from "../../../shared/types/msg";
-import {ChanType} from "../../../shared/types/chan";
+import socket from "../socket.ts";
+import {cleanIrcMessage} from "../../../shared/irc.ts";
+import {store} from "../store.ts";
+import {switchToChannel} from "../router.ts";
+import type {ClientChan, NetChan, ClientMessage} from "../types.ts";
+import {type SharedMsg, MessageType} from "../../../shared/types/msg.ts";
+import {ChanType} from "../../../shared/types/chan.ts";
 
 let pop;
 

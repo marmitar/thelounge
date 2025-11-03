@@ -1,6 +1,6 @@
-import socket from "../socket";
-import upload from "../upload";
-import {store} from "../store";
+import socket from "../socket.ts";
+import upload from "../upload.ts";
+import {store} from "../store.ts";
 
 socket.once("configuration", function (data) {
 	store.commit("serverConfiguration", data);

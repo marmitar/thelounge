@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
-import eventbus from "../js/eventbus";
+import eventbus from "../js/eventbus.ts";
 
 export default defineComponent({
 	name: "InlineChannel",

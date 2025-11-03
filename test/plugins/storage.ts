@@ -1,12 +1,12 @@
-import fs from "fs";
-import path from "path";
-import crypto from "crypto";
+import fs from "node:fs";
+import path from "node:path";
+import crypto from "node:crypto";
 import {expect} from "chai";
-import util from "../util";
-import Config from "../../server/config";
-import storage from "../../server/plugins/storage";
-import link from "../../server/plugins/irc-events/link";
-import {Request, Response} from "express";
+import util from "../util.ts";
+import Config from "../../server/config.ts";
+import storage from "../../server/plugins/storage.ts";
+import link from "../../server/plugins/irc-events/link.ts";
+import type {Request, Response} from "express";
 
 describe("Image storage", function () {
 	// Increase timeout due to unpredictable I/O on CI services

@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
-import log from "../log";
+import log from "../log.ts";
 import colors from "chalk";
 import {Command} from "commander";
-import Config from "../config";
-import Utils from "./utils";
+import Config from "../config.ts";
+import Utils from "./utils.ts";
 
 const program = new Command("upgrade");
 program
@@ -11,8 +11,8 @@ program
 	.description("Upgrade installed themes and packages to their latest versions")
 	.on("--help", Utils.extraHelp)
 	.action(function (packages) {
-		const fs = require("fs");
-		const path = require("path");
+		const fs = require("node:fs");
+		const path = require("node:path");
 
 		// Get paths to the location of packages directory
 		const packagesConfig = path.join(Config.getPackagesPath(), "package.json");

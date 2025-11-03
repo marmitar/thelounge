@@ -1,9 +1,9 @@
-import ldap, {SearchOptions} from "ldapjs";
+import ldap, {type SearchOptions} from "ldapjs";
 import colors from "chalk";
 
-import log from "../../log";
-import Config from "../../config";
-import type {AuthHandler} from "../auth";
+import log from "../../log.ts";
+import Config from "../../config.ts";
+import type {AuthHandler} from "../auth.ts";
 
 function ldapAuthCommon(
 	user: string,

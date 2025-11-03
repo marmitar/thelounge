@@ -18,10 +18,10 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, PropType, ref} from "vue";
-import {condensedTypes} from "../../shared/irc";
-import {MessageType} from "../../shared/types/msg";
-import {ClientMessage, ClientNetwork} from "../js/types";
+import {computed, defineComponent, type PropType, ref} from "vue";
+import {condensedTypes} from "../../shared/irc.ts";
+import {MessageType} from "../../shared/types/msg.ts";
+import type {ClientMessage, ClientNetwork} from "../js/types.ts";
 import Message from "./Message.vue";
 
 export default defineComponent({

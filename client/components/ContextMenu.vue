@@ -48,12 +48,12 @@ import {
 	generateUserContextMenu,
 	generateChannelContextMenu,
 	generateInlineChannelContextMenu,
-	ContextMenuItem,
-} from "../js/helpers/contextMenu";
-import eventbus from "../js/eventbus";
-import {defineComponent, nextTick, onMounted, onUnmounted, PropType, ref} from "vue";
-import {ClientChan, ClientMessage, ClientNetwork, ClientUser} from "../js/types";
-import {useStore} from "../js/store";
+	type ContextMenuItem,
+} from "../js/helpers/contextMenu.ts";
+import eventbus from "../js/eventbus.ts";
+import {defineComponent, nextTick, onMounted, onUnmounted, type PropType, ref} from "vue";
+import type {ClientChan, ClientMessage, ClientNetwork, ClientUser} from "../js/types.ts";
+import {useStore} from "../js/store.ts";
 import {useRouter} from "vue-router";
 
 export default defineComponent({

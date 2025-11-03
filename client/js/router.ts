@@ -1,4 +1,4 @@
-import constants from "./constants";
+import constants from "./constants.ts";
 
 import {createRouter, createWebHashHistory} from "vue-router";
 import SignIn from "../components/Windows/SignIn.vue";
@@ -9,13 +9,13 @@ import Changelog from "../components/Windows/Changelog.vue";
 import NetworkEdit from "../components/Windows/NetworkEdit.vue";
 import SearchResults from "../components/Windows/SearchResults.vue";
 import RoutedChat from "../components/RoutedChat.vue";
-import {store} from "./store";
+import {store} from "./store.ts";
 
 import AppearanceSettings from "../components/Settings/Appearance.vue";
 import GeneralSettings from "../components/Settings/General.vue";
 import AccountSettings from "../components/Settings/Account.vue";
 import NotificationSettings from "../components/Settings/Notifications.vue";
-import {ClientChan} from "./types";
+import type {ClientChan} from "./types.ts";
 
 const router = createRouter({
 	history: createWebHashHistory(),

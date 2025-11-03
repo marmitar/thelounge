@@ -1,7 +1,7 @@
-import {ClientChan, ClientMessage} from "./types";
-import {SharedNetworkChan} from "../../shared/types/network";
-import {SharedMsg, MessageType} from "../../shared/types/msg";
-import {ChanType} from "../../shared/types/chan";
+import type {ClientChan, ClientMessage} from "./types.ts";
+import type {SharedNetworkChan} from "../../shared/types/network.ts";
+import {type SharedMsg, MessageType} from "../../shared/types/msg.ts";
+import {ChanType} from "../../shared/types/chan.ts";
 
 export function toClientChan(shared: SharedNetworkChan): ClientChan {
 	const history: string[] = [""].concat(

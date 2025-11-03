@@ -1,8 +1,8 @@
-import {PluginInputHandler} from "./index";
-import Msg from "../../models/msg";
-import Chan from "../../models/chan";
-import {MessageType} from "../../../shared/types/msg";
-import {ChanType} from "../../../shared/types/chan";
+import type {PluginInputHandler} from "./index.ts";
+import Msg from "../../models/msg.ts";
+import type Chan from "../../models/chan.ts";
+import {MessageType} from "../../../shared/types/msg.ts";
+import {ChanType} from "../../../shared/types/chan.ts";
 
 const commands = ["query", "msg", "say"];
 

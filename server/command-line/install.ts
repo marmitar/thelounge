@@ -1,11 +1,11 @@
-import log from "../log";
+import log from "../log.ts";
 import colors from "chalk";
 import semver from "semver";
-import Helper from "../helper";
-import Config from "../config";
-import Utils from "./utils";
+import Helper from "../helper.ts";
+import Config from "../config.ts";
+import Utils from "./utils.ts";
 import {Command} from "commander";
-import {FullVersion} from "package-json";
+import type {FullVersion} from "package-json";
 
 type CustomMetadata = FullVersion & {
 	thelounge?: {
@@ -22,9 +22,9 @@ program
 	.description("Install a theme or a package")
 	.on("--help", Utils.extraHelp)
 	.action(async function (packageName: string) {
-		const fs = await import("fs");
+		const fs = await import("node:fs");
 		const fspromises = fs.promises;
-		const path = await import("path");
+		const path = await import("node:path");
 		const packageJson = await import("package-json");
 
 		if (!fs.existsSync(Config.getConfigPath())) {

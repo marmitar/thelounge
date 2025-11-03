@@ -1,7 +1,7 @@
 import {Command} from "commander";
-import Utils from "./utils";
-import packageManager from "../plugins/packages";
-import log from "../log";
+import Utils from "./utils.ts";
+import packageManager from "../plugins/packages/index.ts";
+import log from "../log.ts";
 
 const program = new Command("outdated");
 program

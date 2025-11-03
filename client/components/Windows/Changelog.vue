@@ -41,8 +41,8 @@
 
 <script lang="ts">
 import {defineComponent, onMounted, onUpdated, ref} from "vue";
-import socket from "../../js/socket";
-import {useStore} from "../../js/store";
+import socket from "../../js/socket.ts";
+import {useStore} from "../../js/store.ts";
 import SidebarToggle from "../SidebarToggle.vue";
 
 export default defineComponent({

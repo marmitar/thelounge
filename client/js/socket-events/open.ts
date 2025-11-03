@@ -1,5 +1,5 @@
-import socket from "../socket";
-import {store} from "../store";
+import socket from "../socket.ts";
+import {store} from "../store.ts";
 
 // Sync unread badge and marker when other clients open a channel
 socket.on("open", function (id) {

@@ -1,6 +1,6 @@
-import Msg from "../../models/msg";
-import {IrcEventHandler} from "../../client";
-import {MessageType} from "../../../shared/types/msg";
+import Msg from "../../models/msg.ts";
+import type {IrcEventHandler} from "../../client.ts";
+import {MessageType} from "../../../shared/types/msg.ts";
 
 export default <IrcEventHandler>function (irc, network) {
 	const client = this;

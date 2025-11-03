@@ -1,8 +1,8 @@
-import log from "../../../server/log";
+import log from "../../../server/log.ts";
 import {expect} from "chai";
-import TestUtil from "../../util";
+import TestUtil from "../../util.ts";
 import sinon from "ts-sinon";
-import packagePlugin from "../../../server/plugins/packages";
+import type packagePlugin from "../../../server/plugins/packages/index.ts";
 
 let packages: typeof packagePlugin;
 
@@ -14,7 +14,7 @@ describe("packages", function () {
 
 		delete require.cache[require.resolve("../../../server/plugins/packages")];
 		// eslint-disable-next-line @typescript-eslint/no-require-imports
-		packages = require("../../../server/plugins/packages").default;
+		packages = require("../../../server/plugins/packages/index.ts").default;
 	});
 
 	afterEach(function () {

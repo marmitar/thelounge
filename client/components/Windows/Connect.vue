@@ -5,9 +5,9 @@
 <script lang="ts">
 import {defineComponent, ref} from "vue";
 
-import socket from "../../js/socket";
-import {useStore} from "../../js/store";
-import NetworkForm, {NetworkFormDefaults} from "../NetworkForm.vue";
+import socket from "../../js/socket.ts";
+import {useStore} from "../../js/store.ts";
+import NetworkForm, {type NetworkFormDefaults} from "../NetworkForm.vue";
 
 export default defineComponent({
 	name: "Connect",

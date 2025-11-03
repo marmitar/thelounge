@@ -1,11 +1,12 @@
 import _ from "lodash";
-import log from "../log";
-import fs from "fs";
-import path from "path";
+import log from "../log.ts";
+import fs from "node:fs";
+import path from "node:path";
 import WebPushAPI from "web-push";
-import Config from "../config";
-import Client from "../client";
-import * as os from "os";
+import Config from "../config.ts";
+import type Client from "../client.ts";
+import os from "node:os";
+
 class WebPush {
 	vapidKeys?: {
 		publicKey: string;

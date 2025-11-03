@@ -1,45 +1,45 @@
 import _ from "lodash";
-import {Server as wsServer} from "ws";
-import express, {NextFunction, Request, Response} from "express";
+import {WebSocketServer as wsServer} from "ws";
+import express, {type NextFunction, type Request, type Response} from "express";
 import type {ServeStaticOptions} from "serve-static";
-import fs from "fs";
-import path from "path";
-import {Server as ioServer, Socket as ioSocket} from "socket.io";
-import dns from "dns";
+import fs from "node:fs";
+import path from "node:path";
+import {Server as ioServer, type Socket as ioSocket} from "socket.io";
+import dns from "node:dns";
 import colors from "chalk";
-import net from "net";
+import net from "node:net";
 
-import log from "./log";
-import Client from "./client";
-import ClientManager from "./clientManager";
-import Uploader from "./plugins/uploader";
-import Helper from "./helper";
-import Config, {ConfigType} from "./config";
-import Identification from "./identification";
-import changelog from "./plugins/changelog";
-import inputs from "./plugins/inputs";
-import Auth from "./plugins/auth";
+import log from "./log.ts";
+import Client from "./client.ts";
+import ClientManager from "./clientManager.ts";
+import Uploader from "./plugins/uploader.ts";
+import Helper from "./helper.ts";
+import Config, {type ConfigType} from "./config.ts";
+import Identification from "./identification.ts";
+import changelog from "./plugins/changelog.ts";
+import inputs from "./plugins/inputs/index.ts";
+import Auth from "./plugins/auth.ts";
 
-import themes from "./plugins/packages/themes";
+import themes from "./plugins/packages/themes.ts";
 themes.loadLocalThemes();
 
-import packages from "./plugins/packages/index";
-import {NetworkWithIrcFramework} from "./models/network";
-import Utils from "./command-line/utils";
+import packages from "./plugins/packages/index.ts";
+import type {NetworkWithIrcFramework} from "./models/network.ts";
+import Utils from "./command-line/utils.ts";
 import type {
 	ClientToServerEvents,
 	ServerToClientEvents,
 	InterServerEvents,
 	SocketData,
 	AuthPerformData,
-} from "../shared/types/socket-events";
-import {ChanType} from "../shared/types/chan";
-import {
+} from "../shared/types/socket-events.ts";
+import {ChanType} from "../shared/types/chan.ts";
+import type {
 	LockedSharedConfiguration,
 	SharedConfiguration,
 	ConfigNetDefaults,
 	LockedConfigNetDefaults,
-} from "../shared/types/config";
+} from "../shared/types/config.ts";
 
 type ServerOptions = {
 	dev: boolean;
@@ -86,7 +86,7 @@ export default async function (
 	const app = express();
 
 	if (options.dev) {
-		(await import("./plugins/dev-server")).default(app);
+		(await import("./plugins/dev-server.ts")).default(app);
 	}
 
 	app.set("env", "production")
@@ -138,10 +138,10 @@ export default async function (
 		);
 	}
 
-	let server: import("http").Server | import("https").Server;
+	let server: import("node:http").Server | import("node:https").Server;
 
 	if (!Config.values.https.enable) {
-		const createServer = (await import("http")).createServer;
+		const createServer = (await import("node:http")).createServer;
 		server = createServer(app);
 	} else {
 		const keyPath = Helper.expandHome(Config.values.https.key);
@@ -163,7 +163,7 @@ export default async function (
 			process.exit(1);
 		}
 
-		const createServer = (await import("https")).createServer;
+		const createServer = (await import("node:https")).createServer;
 		server = createServer(
 			{
 				key: fs.readFileSync(keyPath),
@@ -286,7 +286,7 @@ export default async function (
 			if (Config.values.prefetchStorage) {
 				log.info("Clearing prefetch storage folder, this might take a while...");
 
-				(await import("./plugins/storage")).default.emptyDir();
+				(await import("./plugins/storage.ts")).default.emptyDir();
 			}
 
 			// Forcefully exit after 3 seconds
@@ -309,7 +309,7 @@ export default async function (
 
 		// Clear storage folder after server starts successfully
 		if (Config.values.prefetchStorage) {
-			import("./plugins/storage")
+			import("./plugins/storage.ts")
 				.then(({default: storage}) => {
 					storage.emptyDir();
 				})

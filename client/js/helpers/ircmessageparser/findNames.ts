@@ -1,4 +1,4 @@
-import {Part} from "./merge";
+import type {Part} from "./merge.ts";
 
 const nickRegExp = /([\w[\]\\`^{|}-]+)/g;
 

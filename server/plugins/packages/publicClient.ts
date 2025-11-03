@@ -1,8 +1,8 @@
-import {PackageInfo} from "./index";
-import Client from "../../client";
-import Chan from "../../models/chan";
-import Msg from "../../models/msg";
-import {MessageType} from "../../../shared/types/msg";
+import type {PackageInfo} from "./index.ts";
+import type Client from "../../client.ts";
+import type Chan from "../../models/chan.ts";
+import Msg from "../../models/msg.ts";
+import {MessageType} from "../../../shared/types/msg.ts";
 
 export default class PublicClient {
 	private client: Client;

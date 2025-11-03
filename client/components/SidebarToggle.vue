@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
-import {useStore} from "../js/store";
+import {useStore} from "../js/store.ts";
 
 export default defineComponent({
 	name: "SidebarToggle",

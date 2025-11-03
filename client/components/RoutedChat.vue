@@ -11,8 +11,8 @@
 <script lang="ts">
 import {watch, computed, defineComponent, onMounted} from "vue";
 import {useRoute} from "vue-router";
-import {useStore} from "../js/store";
-import {ClientChan} from "../js/types";
+import {useStore} from "../js/store.ts";
+import type {ClientChan} from "../js/types.ts";
 
 // Temporary component for routing channels and lobbies
 import Chat from "./Chat.vue";

@@ -1,15 +1,15 @@
 import _ from "lodash";
-import log from "../log";
-import Config from "../config";
-import User from "./user";
-import Msg from "./msg";
-import storage from "../plugins/storage";
-import Client from "../client";
-import Network from "./network";
-import Prefix from "./prefix";
-import {MessageType, SharedMsg} from "../../shared/types/msg";
-import {ChanType, SpecialChanType, ChanState} from "../../shared/types/chan";
-import {SharedNetworkChan} from "../../shared/types/network";
+import log from "../log.ts";
+import Config from "../config.ts";
+import User from "./user.ts";
+import type Msg from "./msg.ts";
+import storage from "../plugins/storage.ts";
+import type Client from "../client.ts";
+import type Network from "./network.ts";
+import Prefix from "./prefix.ts";
+import {MessageType, type SharedMsg} from "../../shared/types/msg.ts";
+import {ChanType, type SpecialChanType, ChanState} from "../../shared/types/chan.ts";
+import type {SharedNetworkChan} from "../../shared/types/network.ts";
 
 export type ChanConfig = {
 	name: string;

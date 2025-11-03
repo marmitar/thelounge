@@ -1,6 +1,6 @@
 import {expect} from "chai";
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 
 describe("public folder", function () {
 	const publicFolder = path.join(__dirname, "..", "..", "public");

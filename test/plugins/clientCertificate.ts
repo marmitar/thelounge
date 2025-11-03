@@ -1,8 +1,10 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import {expect} from "chai";
-import ClientCertificate, {ClientCertificateType} from "../../server/plugins/clientCertificate";
-import Config from "../../server/config";
+import ClientCertificate, {
+	type ClientCertificateType,
+} from "../../server/plugins/clientCertificate.ts";
+import Config from "../../server/config.ts";
 
 describe("ClientCertificate", function () {
 	it("should not generate a client certificate in public mode", function () {

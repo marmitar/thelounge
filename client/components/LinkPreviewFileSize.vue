@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
-import friendlysize from "../js/helpers/friendlysize";
+import friendlysize from "../js/helpers/friendlysize.ts";
 
 export default defineComponent({
 	name: "LinkPreviewFileSize",

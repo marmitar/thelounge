@@ -1,10 +1,10 @@
-import log from "../log";
+import log from "../log.ts";
 import colors from "chalk";
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import {Command} from "commander";
-import Config from "../config";
-import Utils from "./utils";
+import Config from "../config.ts";
+import Utils from "./utils.ts";
 
 const program = new Command("start");
 program

@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 
-import {ActionContext, createStore, Store, useStore as baseUseStore} from "vuex";
-import {createSettingsStore} from "./store-settings";
-import storage from "./localStorage";
-import type {ClientChan, ClientNetwork, NetChan, ClientMention, ClientMessage} from "./types";
+import {type ActionContext, createStore, type Store, useStore as baseUseStore} from "vuex";
+import {createSettingsStore} from "./store-settings.ts";
+import storage from "./localStorage.ts";
+import type {ClientChan, ClientNetwork, NetChan, ClientMention, ClientMessage} from "./types.ts";
 import type {InjectionKey} from "vue";
 
-import {SettingsState} from "./settings";
-import {SearchQuery} from "../../shared/types/storage";
-import {SharedConfiguration, LockedSharedConfiguration} from "../../shared/types/config";
+import type {SettingsState} from "./settings.ts";
+import type {SearchQuery} from "../../shared/types/storage.ts";
+import type {SharedConfiguration, LockedSharedConfiguration} from "../../shared/types/config.ts";
 
 const appName = document.title;
 

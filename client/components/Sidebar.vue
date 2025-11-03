@@ -90,9 +90,9 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, nextTick, onMounted, onUnmounted, PropType, ref} from "vue";
+import {defineComponent, nextTick, onMounted, onUnmounted, type PropType, ref} from "vue";
 import {useRoute} from "vue-router";
-import {useStore} from "../js/store";
+import {useStore} from "../js/store.ts";
 import NetworkList from "./NetworkList.vue";
 
 export default defineComponent({

@@ -1,16 +1,16 @@
 import * as cheerio from "cheerio";
 import got from "got";
-import {URL} from "url";
+import {URL} from "node:url";
 import mime from "mime-types";
 
-import log from "../../log";
-import Config from "../../config";
-import {findLinksWithSchema} from "../../../shared/linkify";
-import {LinkPreview} from "../../../shared/types/msg";
-import storage from "../storage";
-import Client from "../../client";
-import Chan from "../../models/chan";
-import Msg from "../../models/msg";
+import log from "../../log.ts";
+import Config from "../../config.ts";
+import {findLinksWithSchema} from "../../../shared/linkify.ts";
+import type {LinkPreview} from "../../../shared/types/msg.ts";
+import storage from "../storage.ts";
+import type Client from "../../client.ts";
+import type Chan from "../../models/chan.ts";
+import type Msg from "../../models/msg.ts";
 
 type FetchRequest = {
 	data: Buffer;

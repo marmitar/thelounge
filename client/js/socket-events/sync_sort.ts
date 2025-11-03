@@ -1,5 +1,5 @@
-import socket from "../socket";
-import {store} from "../store";
+import socket from "../socket.ts";
+import {store} from "../store.ts";
 
 socket.on("sync_sort:networks", function (data) {
 	store.commit("sortNetworks", (a, b) => data.order.indexOf(a.uuid) - data.order.indexOf(b.uuid));

@@ -1,8 +1,8 @@
-import {SharedChan} from "../../shared/types/chan";
-import {SharedNetwork} from "../../shared/types/network";
-import {SharedUser} from "../../shared/types/user";
-import {SharedMention} from "../../shared/types/mention";
-import {LinkPreview, SharedMsg} from "../../shared/types/msg";
+import type {SharedChan} from "../../shared/types/chan.ts";
+import type {SharedNetwork} from "../../shared/types/network.ts";
+import type {SharedUser} from "../../shared/types/user.ts";
+import type {SharedMention} from "../../shared/types/mention.ts";
+import type {LinkPreview, SharedMsg} from "../../shared/types/msg.ts";
 
 export interface LoungeWindow extends Window {
 	g_TheLoungeRemoveLoading?: () => void;

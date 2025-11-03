@@ -1,18 +1,18 @@
-import constants from "./constants";
+import constants from "./constants.ts";
 
 import "../css/style.css";
 import {createApp} from "vue";
-import {store, CallableGetters, key} from "./store";
+import {store, type CallableGetters, key} from "./store.ts";
 import App from "../components/App.vue";
-import storage from "./localStorage";
-import {router} from "./router";
-import socket from "./socket";
-import "./socket-events"; // this sets up all socket event listeners, do not remove
-import eventbus from "./eventbus";
+import storage from "./localStorage.ts";
+import {router} from "./router.ts";
+import socket from "./socket.ts";
+import "./socket-events/index.ts"; // this sets up all socket event listeners, do not remove
+import eventbus from "./eventbus.ts";
 
-import "./webpush";
-import "./keybinds";
-import {LoungeWindow} from "./types";
+import "./webpush.ts";
+import "./keybinds.ts";
+import type {LoungeWindow} from "./types.ts";
 
 const favicon = document.getElementById("favicon");
 const faviconNormal = favicon?.getAttribute("href") || "";

@@ -1,5 +1,5 @@
 const commands = ["away", "back"];
-import {PluginInputHandler} from "./index";
+import type {PluginInputHandler} from "./index.ts";
 
 const input: PluginInputHandler = function (network, chan, cmd, args) {
 	let reason = "";

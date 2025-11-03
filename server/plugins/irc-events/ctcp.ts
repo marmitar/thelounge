@@ -1,10 +1,10 @@
 import _ from "lodash";
-import {IrcEventHandler} from "../../client";
-import Helper from "../../helper";
-import Msg from "../../models/msg";
-import User from "../../models/user";
+import type {IrcEventHandler} from "../../client.ts";
+import Helper from "../../helper.ts";
+import Msg from "../../models/msg.ts";
+import User from "../../models/user.ts";
 import pkg from "../../../package.json";
-import {MessageType} from "../../../shared/types/msg";
+import {MessageType} from "../../../shared/types/msg.ts";
 
 const ctcpResponses = {
 	CLIENTINFO: () =>

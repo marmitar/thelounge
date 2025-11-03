@@ -1,9 +1,9 @@
-import path from "path";
-import fs from "fs";
-import crypto from "crypto";
+import path from "node:path";
+import fs from "node:fs";
+import crypto from "node:crypto";
 import {md, pki} from "node-forge";
-import log from "../log";
-import Config from "../config";
+import log from "../log.ts";
+import Config from "../config.ts";
 
 export default {
 	get,

@@ -102,11 +102,11 @@
 </template>
 
 <script lang="ts">
-import socket from "../../js/socket";
+import socket from "../../js/socket.ts";
 import RevealPassword from "../RevealPassword.vue";
 import Session from "../Session.vue";
-import {computed, defineComponent, onMounted, PropType, ref} from "vue";
-import {useStore} from "../../js/store";
+import {computed, defineComponent, onMounted, ref} from "vue";
+import {useStore} from "../../js/store.ts";
 
 export default defineComponent({
 	name: "UserSettings",

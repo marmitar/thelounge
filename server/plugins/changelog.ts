@@ -1,10 +1,10 @@
-import got, {Response} from "got";
+import got, {type Response} from "got";
 import colors from "chalk";
-import log from "../log";
+import log from "../log.ts";
 import pkg from "../../package.json";
-import ClientManager from "../clientManager";
-import Config from "../config";
-import {SharedChangelogData} from "../../shared/types/changelog";
+import type ClientManager from "../clientManager.ts";
+import Config from "../config.ts";
+import type {SharedChangelogData} from "../../shared/types/changelog.ts";
 
 const TIME_TO_LIVE = 15 * 60 * 1000; // 15 minutes, in milliseconds
 

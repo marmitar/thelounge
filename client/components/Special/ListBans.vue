@@ -19,9 +19,9 @@
 
 <script lang="ts">
 import ParsedMessage from "../ParsedMessage.vue";
-import localeTime from "../../js/helpers/localetime";
-import {defineComponent, PropType} from "vue";
-import type {ClientNetwork, ClientChan} from "../../js/types";
+import localeTime from "../../js/helpers/localetime.ts";
+import {defineComponent, type PropType} from "vue";
+import type {ClientNetwork, ClientChan} from "../../js/types.ts";
 
 export default defineComponent({
 	name: "ListBans",

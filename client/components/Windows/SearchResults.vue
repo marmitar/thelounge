@@ -93,20 +93,20 @@
 </style>
 
 <script lang="ts">
-import socket from "../../js/socket";
-import eventbus from "../../js/eventbus";
+import socket from "../../js/socket.ts";
+import eventbus from "../../js/eventbus.ts";
 
 import SidebarToggle from "../SidebarToggle.vue";
 import Message from "../Message.vue";
 import MessageSearchForm from "../MessageSearchForm.vue";
 import DateMarker from "../DateMarker.vue";
 import {watch, computed, defineComponent, nextTick, ref, onMounted, onUnmounted} from "vue";
-import type {ClientMessage} from "../../js/types";
+import type {ClientMessage} from "../../js/types.ts";
 
-import {useStore} from "../../js/store";
+import {useStore} from "../../js/store.ts";
 import {useRoute, useRouter} from "vue-router";
-import {switchToChannel} from "../../js/router";
-import {SearchQuery} from "../../../shared/types/storage";
+import {switchToChannel} from "../../js/router.ts";
+import type {SearchQuery} from "../../../shared/types/storage.ts";
 
 export default defineComponent({
 	name: "SearchResults",

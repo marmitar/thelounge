@@ -1,31 +1,35 @@
 import _ from "lodash";
 import {UAParser} from "ua-parser-js";
 import {v4 as uuidv4} from "uuid";
-import escapeRegExp from "lodash/escapeRegExp";
-import crypto from "crypto";
+import escapeRegExp from "lodash/escapeRegExp.js";
+import crypto from "node:crypto";
 import colors from "chalk";
 import type WebPushAPI from "web-push";
 
-import log from "./log";
-import Chan, {ChanConfig} from "./models/chan";
-import Msg from "./models/msg";
-import Config from "./config";
-import {condensedTypes} from "../shared/irc";
-import {MessageType} from "../shared/types/msg";
-import {SharedMention} from "../shared/types/mention";
+import log from "./log.ts";
+import Chan, {type ChanConfig} from "./models/chan.ts";
+import Msg from "./models/msg.ts";
+import Config from "./config.ts";
+import {condensedTypes} from "../shared/irc.ts";
+import {MessageType} from "../shared/types/msg.ts";
+import type {SharedMention} from "../shared/types/mention.ts";
 
-import inputs from "./plugins/inputs";
-import PublicClient from "./plugins/packages/publicClient";
-import SqliteMessageStorage from "./plugins/messageStorage/sqlite";
-import TextFileMessageStorage from "./plugins/messageStorage/text";
-import Network, {IgnoreListItem, NetworkConfig, NetworkWithIrcFramework} from "./models/network";
-import ClientManager from "./clientManager";
-import {MessageStorage} from "./plugins/messageStorage/types";
-import {StorageCleaner} from "./storageCleaner";
-import {SearchQuery, SearchResponse} from "../shared/types/storage";
-import {SharedChan, ChanType} from "../shared/types/chan";
-import {SharedNetwork} from "../shared/types/network";
-import {ClientPushSubscription, ServerToClientEvents} from "../shared/types/socket-events";
+import inputs from "./plugins/inputs/index.ts";
+import PublicClient from "./plugins/packages/publicClient.ts";
+import SqliteMessageStorage from "./plugins/messageStorage/sqlite.ts";
+import TextFileMessageStorage from "./plugins/messageStorage/text.ts";
+import Network, {
+	type IgnoreListItem,
+	type NetworkConfig,
+	type NetworkWithIrcFramework,
+} from "./models/network.ts";
+import type ClientManager from "./clientManager.ts";
+import type {MessageStorage} from "./plugins/messageStorage/types.ts";
+import {StorageCleaner} from "./storageCleaner.ts";
+import type {SearchQuery, SearchResponse} from "../shared/types/storage.ts";
+import {type SharedChan, ChanType} from "../shared/types/chan.ts";
+import type {SharedNetwork} from "../shared/types/network.ts";
+import type {ClientPushSubscription, ServerToClientEvents} from "../shared/types/socket-events.ts";
 
 const events = [
 	"away",

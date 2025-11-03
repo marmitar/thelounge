@@ -1,4 +1,4 @@
-import {MessageType, UserInMessage} from "./msg";
+import type {MessageType, UserInMessage} from "./msg.ts";
 
 export type SharedMention = {
 	chanId: number;

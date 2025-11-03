@@ -1,7 +1,7 @@
 import {update as updateCursor} from "undate";
 
-import socket from "./socket";
-import {store} from "./store";
+import socket from "./socket.ts";
+import {store} from "./store.ts";
 
 class Uploader {
 	xhr: XMLHttpRequest | null = null;

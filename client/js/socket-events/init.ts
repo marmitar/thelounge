@@ -1,11 +1,11 @@
-import socket from "../socket";
-import storage from "../localStorage";
-import {toClientChan} from "../chan";
-import {router, switchToChannel, navigate} from "../router";
-import {store} from "../store";
-import parseIrcUri from "../helpers/parseIrcUri";
-import {ClientNetwork, ClientChan} from "../types";
-import {SharedNetwork, SharedNetworkChan} from "../../../shared/types/network";
+import socket from "../socket.ts";
+import storage from "../localStorage.ts";
+import {toClientChan} from "../chan.ts";
+import {router, switchToChannel, navigate} from "../router.ts";
+import {store} from "../store.ts";
+import parseIrcUri from "../helpers/parseIrcUri.ts";
+import type {ClientNetwork, ClientChan} from "../types.ts";
+import type {SharedNetwork, SharedNetworkChan} from "../../../shared/types/network.ts";
 
 socket.on("init", async function (data) {
 	store.commit("networks", mergeNetworkData(data.networks));

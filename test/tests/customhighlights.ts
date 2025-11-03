@@ -1,7 +1,7 @@
 import {expect} from "chai";
-import log from "../../server/log";
-import Client from "../../server/client";
-import TestUtil from "../util";
+import log from "../../server/log.ts";
+import Client from "../../server/client.ts";
+import TestUtil from "../util.ts";
 import sinon from "ts-sinon";
 
 describe("Custom highlights", function () {

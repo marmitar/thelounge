@@ -25,7 +25,7 @@ if (!require("semver").satisfies(process.version, pkg.engines.node)) {
 	process.exit(1);
 }
 
-const fs = require("fs");
+const fs = require("node:fs");
 
 if (fs.existsSync("./dist/server/index.js")) {
 	require("./dist/server/index.js");

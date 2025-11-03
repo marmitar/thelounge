@@ -1,9 +1,9 @@
-import log from "../log";
+import log from "../log.ts";
 import {Command} from "commander";
-import ClientManager from "../clientManager";
-import Utils from "./utils";
-import SqliteMessageStorage from "../plugins/messageStorage/sqlite";
-import {StorageCleaner} from "../storageCleaner";
+import ClientManager from "../clientManager.ts";
+import Utils from "./utils.ts";
+import SqliteMessageStorage from "../plugins/messageStorage/sqlite.ts";
+import {StorageCleaner} from "../storageCleaner.ts";
 
 const program = new Command("storage").description(
 	"various utilities related to the message storage"

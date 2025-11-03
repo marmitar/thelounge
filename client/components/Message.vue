@@ -98,18 +98,18 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, PropType} from "vue";
+import {computed, defineComponent, type PropType} from "vue";
 import dayjs from "dayjs";
 
-import constants from "../js/constants";
-import localetime from "../js/helpers/localetime";
+import constants from "../js/constants.ts";
+import localetime from "../js/helpers/localetime.ts";
 import Username from "./Username.vue";
 import LinkPreview from "./LinkPreview.vue";
 import ParsedMessage from "./ParsedMessage.vue";
-import MessageTypes from "./MessageTypes";
+import MessageTypes from "./MessageTypes/index.ts";
 
-import type {ClientChan, ClientMessage, ClientNetwork} from "../js/types";
-import {useStore} from "../js/store";
+import type {ClientChan, ClientMessage, ClientNetwork} from "../js/types.ts";
+import {useStore} from "../js/store.ts";
 
 MessageTypes.ParsedMessage = ParsedMessage;
 MessageTypes.LinkPreview = LinkPreview;

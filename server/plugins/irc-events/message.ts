@@ -1,13 +1,13 @@
-import Msg from "../../models/msg";
-import LinkPrefetch from "./link";
-import {cleanIrcMessage} from "../../../shared/irc";
-import Helper from "../../helper";
-import {IrcEventHandler} from "../../client";
-import Chan from "../../models/chan";
-import User from "../../models/user";
-import {MessageType} from "../../../shared/types/msg";
-import {ChanType} from "../../../shared/types/chan";
-import {MessageEventArgs} from "irc-framework";
+import Msg from "../../models/msg.ts";
+import LinkPrefetch from "./link.ts";
+import {cleanIrcMessage} from "../../../shared/irc.ts";
+import Helper from "../../helper.ts";
+import type {IrcEventHandler} from "../../client.ts";
+import type Chan from "../../models/chan.ts";
+import type User from "../../models/user.ts";
+import {MessageType} from "../../../shared/types/msg.ts";
+import {ChanType} from "../../../shared/types/chan.ts";
+import type {MessageEventArgs} from "irc-framework";
 
 const nickRegExp = /(?:\x03[0-9]{1,2}(?:,[0-9]{1,2})?)?([\w[\]\\`^{|}-]+)/g;
 

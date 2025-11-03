@@ -1,9 +1,9 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import _ from "lodash";
 
-import Config from "../../config";
-import Utils from "../../command-line/utils";
+import Config from "../../config.ts";
+import Utils from "../../command-line/utils.ts";
 
 type Module = {
 	type?: string;

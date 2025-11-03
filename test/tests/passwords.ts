@@ -1,5 +1,5 @@
 import {expect} from "chai";
-import Helper from "../../server/helper";
+import Helper from "../../server/helper.ts";
 
 describe("Client passwords", function () {
 	this.slow(1500);

@@ -1,7 +1,7 @@
-import log from "../../../server/log";
+import log from "../../../server/log.ts";
 import {expect} from "chai";
-import TestUtil from "../../util";
-import Utils from "../../../server/command-line/utils";
+import TestUtil from "../../util.ts";
+import Utils from "../../../server/command-line/utils.ts";
 import sinon from "ts-sinon";
 
 describe("Utils", function () {

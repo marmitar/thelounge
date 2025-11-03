@@ -138,15 +138,15 @@ import {
 	onBeforeUnmount,
 	onMounted,
 	onUnmounted,
-	PropType,
+	type PropType,
 	ref,
 	watch,
 } from "vue";
 import {onBeforeRouteUpdate} from "vue-router";
-import eventbus from "../js/eventbus";
-import friendlysize from "../js/helpers/friendlysize";
-import {useStore} from "../js/store";
-import type {ClientChan, ClientLinkPreview} from "../js/types";
+import eventbus from "../js/eventbus.ts";
+import friendlysize from "../js/helpers/friendlysize.ts";
+import {useStore} from "../js/store.ts";
+import type {ClientChan, ClientLinkPreview} from "../js/types.ts";
 import {imageViewerKey} from "./App.vue";
 
 export default defineComponent({

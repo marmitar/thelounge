@@ -58,9 +58,9 @@
 
 <script lang="ts">
 import {filter as fuzzyFilter} from "fuzzy";
-import {computed, defineComponent, nextTick, PropType, ref} from "vue";
-import type {UserInMessage} from "../../shared/types/msg";
-import type {ClientChan, ClientUser} from "../js/types";
+import {computed, defineComponent, nextTick, type PropType, ref} from "vue";
+import type {UserInMessage} from "../../shared/types/msg.ts";
+import type {ClientChan, ClientUser} from "../js/types.ts";
 import Username from "./Username.vue";
 
 const modes = {

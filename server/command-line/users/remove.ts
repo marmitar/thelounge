@@ -1,9 +1,9 @@
-import log from "../../log";
+import log from "../../log.ts";
 import colors from "chalk";
 import {Command} from "commander";
-import fs from "fs";
-import Config from "../../config";
-import Utils from "../utils";
+import fs from "node:fs";
+import Config from "../../config.ts";
+import Utils from "../utils.ts";
 
 const program = new Command("remove");
 program
@@ -17,7 +17,7 @@ program
 		}
 
 		// eslint-disable-next-line @typescript-eslint/no-require-imports
-		const ClientManager = require("../../clientManager").default;
+		const ClientManager = require("../../clientManager.js").default;
 		const manager = new ClientManager();
 
 		try {

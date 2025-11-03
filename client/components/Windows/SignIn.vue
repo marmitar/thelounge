@@ -54,8 +54,8 @@
 </template>
 
 <script lang="ts">
-import storage from "../../js/localStorage";
-import socket from "../../js/socket";
+import storage from "../../js/localStorage.ts";
+import socket from "../../js/socket.ts";
 import RevealPassword from "../RevealPassword.vue";
 import {defineComponent, onBeforeUnmount, onMounted, ref} from "vue";
 

@@ -1,7 +1,7 @@
 import colors from "chalk";
-import Client from "../client";
-import ClientManager from "../clientManager";
-import log from "../log";
+import type Client from "../client.ts";
+import type ClientManager from "../clientManager.ts";
+import log from "../log.ts";
 
 export type AuthHandler = (
 	manager: ClientManager,
@@ -13,7 +13,7 @@ export type AuthHandler = (
 
 // The order defines priority: the first available plugin is used.
 // Always keep 'local' auth plugin at the end of the list; it should always be enabled.
-const plugins = [import("./auth/ldap"), import("./auth/local")];
+const plugins = [import("./auth/ldap.ts"), import("./auth/local.ts")];
 
 const toExport = {
 	moduleName: "<module with no name>",

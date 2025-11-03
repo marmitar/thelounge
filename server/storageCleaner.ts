@@ -1,8 +1,8 @@
-import SqliteMessageStorage from "./plugins/messageStorage/sqlite";
-import Config from "./config";
-import {DeletionRequest} from "./plugins/messageStorage/types";
-import log from "./log";
-import {MessageType} from "../shared/types/msg";
+import type SqliteMessageStorage from "./plugins/messageStorage/sqlite.ts";
+import Config from "./config.ts";
+import type {DeletionRequest} from "./plugins/messageStorage/types.ts";
+import log from "./log.ts";
+import {MessageType} from "../shared/types/msg.ts";
 
 const status_types = [
 	MessageType.AWAY,

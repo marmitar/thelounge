@@ -1,12 +1,12 @@
 import Mousetrap from "mousetrap";
 
-import {store} from "./store";
-import {switchToChannel, router, navigate} from "./router";
-import isChannelCollapsed from "./helpers/isChannelCollapsed";
-import isIgnoredKeybind from "./helpers/isIgnoredKeybind";
-import listenForTwoFingerSwipes from "./helpers/listenForTwoFingerSwipes";
-import {ClientChan} from "./types";
-import {ChanType} from "../../shared/types/chan";
+import {store} from "./store.ts";
+import {switchToChannel, router, navigate} from "./router.ts";
+import isChannelCollapsed from "./helpers/isChannelCollapsed.ts";
+import isIgnoredKeybind from "./helpers/isIgnoredKeybind.ts";
+import listenForTwoFingerSwipes from "./helpers/listenForTwoFingerSwipes.ts";
+import type {ClientChan} from "./types.ts";
+import {ChanType} from "../../shared/types/chan.ts";
 
 // Switch to the next/previous window in the channel list.
 Mousetrap.bind(["alt+up", "alt+down"], function (e, keys) {

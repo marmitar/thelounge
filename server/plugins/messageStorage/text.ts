@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
-import fs from "fs/promises";
-import path from "path";
+import fs from "node:fs/promises";
+import path from "node:path";
 import filenamify from "filenamify";
 
-import Config from "../../config";
-import {MessageStorage} from "./types";
-import Channel from "../../models/chan";
-import {Message} from "../../models/msg";
-import Network from "../../models/network";
-import {MessageType} from "../../../shared/types/msg";
+import Config from "../../config.ts";
+import type {MessageStorage} from "./types.ts";
+import type Channel from "../../models/chan.ts";
+import type {Message} from "../../models/msg.ts";
+import type Network from "../../models/network.ts";
+import {MessageType} from "../../../shared/types/msg.ts";
 
 class TextFileMessageStorage implements MessageStorage {
 	isEnabled: boolean;

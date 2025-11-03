@@ -37,8 +37,8 @@
 
 <script lang="ts">
 import {defineComponent, onMounted} from "vue";
-import socket from "../js/socket";
-import {useStore} from "../js/store";
+import socket from "../js/socket.ts";
+import {useStore} from "../js/store.ts";
 
 export default defineComponent({
 	name: "VersionChecker",

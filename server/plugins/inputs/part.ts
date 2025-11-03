@@ -1,9 +1,9 @@
-import {PluginInputHandler} from "./index";
+import type {PluginInputHandler} from "./index.ts";
 
-import Msg from "../../models/msg";
-import Config from "../../config";
-import {MessageType} from "../../../shared/types/msg";
-import {ChanType, ChanState} from "../../../shared/types/chan";
+import Msg from "../../models/msg.ts";
+import Config from "../../config.ts";
+import {MessageType} from "../../../shared/types/msg.ts";
+import {ChanType, ChanState} from "../../../shared/types/chan.ts";
 
 const commands = ["close", "leave", "part"];
 const allowDisconnected = true;

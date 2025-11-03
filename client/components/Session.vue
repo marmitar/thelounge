@@ -46,11 +46,11 @@
 </style>
 
 <script lang="ts">
-import {computed, defineComponent, PropType} from "vue";
-import localetime from "../js/helpers/localetime";
-import Auth from "../js/auth";
-import socket from "../js/socket";
-import {ClientSession} from "../js/store";
+import {computed, defineComponent, type PropType} from "vue";
+import localetime from "../js/helpers/localetime.ts";
+import Auth from "../js/auth.ts";
+import socket from "../js/socket.ts";
+import type {ClientSession} from "../js/store.ts";
 
 export default defineComponent({
 	name: "Session",

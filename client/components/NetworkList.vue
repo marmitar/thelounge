@@ -213,15 +213,15 @@ import NetworkLobby from "./NetworkLobby.vue";
 import Channel from "./Channel.vue";
 import JoinChannel from "./JoinChannel.vue";
 
-import socket from "../js/socket";
-import collapseNetworkHelper from "../js/helpers/collapseNetwork";
-import isIgnoredKeybind from "../js/helpers/isIgnoredKeybind";
-import distance from "../js/helpers/distance";
-import eventbus from "../js/eventbus";
-import {ClientChan, NetChan} from "../js/types";
-import {useStore} from "../js/store";
-import {switchToChannel} from "../js/router";
-import Sortable from "sortablejs";
+import socket from "../js/socket.ts";
+import collapseNetworkHelper from "../js/helpers/collapseNetwork.ts";
+import isIgnoredKeybind from "../js/helpers/isIgnoredKeybind.ts";
+import distance from "../js/helpers/distance.ts";
+import eventbus from "../js/eventbus.ts";
+import type {ClientChan, NetChan} from "../js/types.ts";
+import {useStore} from "../js/store.ts";
+import {switchToChannel} from "../js/router.ts";
+import type Sortable from "sortablejs";
 
 export default defineComponent({
 	name: "NetworkList",

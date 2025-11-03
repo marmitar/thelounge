@@ -7,9 +7,9 @@
 </template>
 
 <script lang="ts">
-import localetime from "../../js/helpers/localetime";
-import {computed, defineComponent, PropType} from "vue";
-import {ClientNetwork, ClientMessage} from "../../js/types";
+import localetime from "../../js/helpers/localetime.ts";
+import {computed, defineComponent, type PropType} from "vue";
+import type {ClientNetwork, ClientMessage} from "../../js/types.ts";
 import Username from "../Username.vue";
 
 export default defineComponent({

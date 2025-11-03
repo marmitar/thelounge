@@ -1,9 +1,9 @@
-import socket from "../socket";
-import {store} from "../store";
-import {switchToChannel} from "../router";
-import {toClientChan} from "../chan";
-import {ClientNetwork} from "../types";
-import {ChanState} from "../../../shared/types/chan";
+import socket from "../socket.ts";
+import {store} from "../store.ts";
+import {switchToChannel} from "../router.ts";
+import {toClientChan} from "../chan.ts";
+import type {ClientNetwork} from "../types.ts";
+import {ChanState} from "../../../shared/types/chan.ts";
 
 socket.on("network", function (data) {
 	const network: ClientNetwork = {

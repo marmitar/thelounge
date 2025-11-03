@@ -147,14 +147,14 @@
 <script lang="ts">
 import Username from "./Username.vue";
 import ParsedMessage from "./ParsedMessage.vue";
-import socket from "../js/socket";
-import eventbus from "../js/eventbus";
-import localetime from "../js/helpers/localetime";
+import socket from "../js/socket.ts";
+import eventbus from "../js/eventbus.ts";
+import localetime from "../js/helpers/localetime.ts";
 import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
+import relativeTime from "dayjs/plugin/relativeTime.js";
 import {computed, watch, defineComponent, ref, onMounted, onUnmounted} from "vue";
-import {useStore} from "../js/store";
-import {ClientMention} from "../js/types";
+import {useStore} from "../js/store.ts";
+import type {ClientMention} from "../js/types.ts";
 
 dayjs.extend(relativeTime);
 

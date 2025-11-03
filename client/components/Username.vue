@@ -11,12 +11,12 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, PropType} from "vue";
-import {UserInMessage} from "../../shared/types/msg";
-import eventbus from "../js/eventbus";
-import colorClass from "../js/helpers/colorClass";
-import type {ClientChan, ClientNetwork} from "../js/types";
-import {useStore} from "../js/store";
+import {computed, defineComponent, type PropType} from "vue";
+import type {UserInMessage} from "../../shared/types/msg.ts";
+import eventbus from "../js/eventbus.ts";
+import colorClass from "../js/helpers/colorClass.ts";
+import type {ClientChan, ClientNetwork} from "../js/types.ts";
+import {useStore} from "../js/store.ts";
 
 type UsernameUser = Partial<UserInMessage> & {
 	mode?: string;

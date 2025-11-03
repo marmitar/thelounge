@@ -1,8 +1,8 @@
 import _ from "lodash";
-import fs from "fs";
-import path from "path";
-import log from "../log";
-import Config from "../config";
+import fs from "node:fs";
+import path from "node:path";
+import log from "../log.ts";
+import Config from "../config.ts";
 
 type PolicyOption = {
 	port: number;

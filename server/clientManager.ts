@@ -1,15 +1,15 @@
 import _ from "lodash";
 import colors from "chalk";
-import crypto from "crypto";
-import fs from "fs";
-import path from "path";
+import crypto from "node:crypto";
+import fs from "node:fs";
+import path from "node:path";
 
-import Auth from "./plugins/auth";
-import Client, {UserConfig} from "./client";
-import Config from "./config";
-import WebPush from "./plugins/webpush";
-import log from "./log";
-import {Server} from "./server";
+import Auth from "./plugins/auth.ts";
+import Client, {type UserConfig} from "./client.ts";
+import Config from "./config.ts";
+import WebPush from "./plugins/webpush.ts";
+import log from "./log.ts";
+import type {Server} from "./server.ts";
 
 class ClientManager {
 	clients: Client[];

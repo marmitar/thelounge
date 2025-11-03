@@ -143,8 +143,8 @@ your nickname or expressions defined in custom highlights."
 
 <script lang="ts">
 import {computed, defineComponent} from "vue";
-import {useStore} from "../../js/store";
-import webpush from "../../js/webpush";
+import {useStore} from "../../js/store.ts";
+import webpush from "../../js/webpush.ts";
 
 export default defineComponent({
 	name: "NotificationSettings",

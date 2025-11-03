@@ -8,10 +8,10 @@
 // npm run generate:config:doc ../thelounge.github.io/
 // ```
 
-const {readFileSync, writeFileSync} = require("fs");
+const {readFileSync, writeFileSync} = require("node:fs");
 const colors = require("chalk").default;
-const {join} = require("path");
-const {spawnSync} = require("child_process");
+const {join} = require("node:path");
+const {spawnSync} = require("node:child_process");
 
 function timestamp() {
 	const datetime = new Date().toISOString().split(".")[0].replace("T", " ");

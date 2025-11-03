@@ -1,10 +1,10 @@
-import log from "../../log";
+import log from "../../log.ts";
 import {Command} from "commander";
-import child from "child_process";
+import child from "node:child_process";
 import colors from "chalk";
-import fs from "fs";
-import Config from "../../config";
-import Utils from "../utils";
+import fs from "node:fs";
+import Config from "../../config.ts";
+import Utils from "../utils.ts";
 
 const program = new Command("edit");
 program
@@ -18,7 +18,7 @@ program
 		}
 
 		// eslint-disable-next-line @typescript-eslint/no-require-imports
-		const ClientManager = require("../../clientManager").default;
+		const ClientManager = require("../../clientManager.js").default;
 		const users = new ClientManager().getUsers();
 
 		if (users === undefined) {

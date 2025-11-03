@@ -1,5 +1,5 @@
-import socket from "../socket";
-import Auth from "../auth";
+import socket from "../socket.ts";
+import Auth from "../auth.ts";
 
 socket.on("sign-out", function () {
 	Auth.signout();

@@ -1,9 +1,9 @@
-import path from "path";
+import path from "node:path";
 import {expect} from "chai";
-import util from "../util";
-import Config from "../../server/config";
-import link from "../../server/plugins/irc-events/link";
-import {LinkPreview} from "../../shared/types/msg";
+import util from "../util.ts";
+import Config from "../../server/config.ts";
+import link from "../../server/plugins/irc-events/link.ts";
+import type {LinkPreview} from "../../shared/types/msg.ts";
 
 describe("Link plugin", function () {
 	// Increase timeout due to unpredictable I/O on CI services

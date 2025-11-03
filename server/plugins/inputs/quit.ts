@@ -1,7 +1,7 @@
 import _ from "lodash";
 
-import {PluginInputHandler} from "./index";
-import ClientCertificate from "../clientCertificate";
+import type {PluginInputHandler} from "./index.ts";
+import ClientCertificate from "../clientCertificate.ts";
 
 const commands = ["quit"];
 const allowDisconnected = true;

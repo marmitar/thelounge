@@ -1,6 +1,6 @@
 import {expect} from "chai";
-import os from "os";
-import Helper from "../../server/helper";
+import os from "node:os";
+import Helper from "../../server/helper.ts";
 
 describe("Helper", function () {
 	describe("#expandHome", function () {

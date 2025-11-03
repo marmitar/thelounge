@@ -1,7 +1,7 @@
-import {PluginInputHandler} from "./index";
+import type {PluginInputHandler} from "./index.ts";
 
-import Msg from "../../models/msg";
-import {MessageType} from "../../../shared/types/msg";
+import Msg from "../../models/msg.ts";
+import {MessageType} from "../../../shared/types/msg.ts";
 
 const commands = ["nick"];
 const allowDisconnected = true;

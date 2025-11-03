@@ -47,12 +47,12 @@ node scripts/changelog <version>
 
 const _ = require("lodash");
 const colors = require("chalk").default;
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
 const got = require("got").default;
 const dayjs = require("dayjs");
 const semver = require("semver");
-const util = require("util");
+const util = require("node:util");
 const packageJson = require("../package.json");
 let token = process.env.CHANGELOG_TOKEN;
 

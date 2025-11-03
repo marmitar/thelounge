@@ -1,8 +1,8 @@
-import Msg from "../../models/msg";
-import User from "../../models/user";
-import type {IrcEventHandler} from "../../client";
-import {MessageType} from "../../../shared/types/msg";
-import {ChanState} from "../../../shared/types/chan";
+import Msg from "../../models/msg.ts";
+import User from "../../models/user.ts";
+import type {IrcEventHandler} from "../../client.ts";
+import {MessageType} from "../../../shared/types/msg.ts";
+import {ChanState} from "../../../shared/types/chan.ts";
 
 export default <IrcEventHandler>function (irc, network) {
 	const client = this;

@@ -2,8 +2,8 @@
 "use strict";
 
 const got = require("got").default;
-const path = require("path");
-const fs = require("fs");
+const path = require("node:path");
+const fs = require("node:fs");
 
 // same regex as found in client/../parse.js
 const emojiModifiersRegex = /[\u{1f3fb}-\u{1f3ff}]|\u{fe0f}/gu;

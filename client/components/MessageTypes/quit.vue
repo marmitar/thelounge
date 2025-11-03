@@ -10,8 +10,8 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, PropType} from "vue";
-import type {ClientMessage, ClientNetwork} from "../../js/types";
+import {defineComponent, type PropType} from "vue";
+import type {ClientMessage, ClientNetwork} from "../../js/types.ts";
 import ParsedMessage from "../ParsedMessage.vue";
 import Username from "../Username.vue";
 

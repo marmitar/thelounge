@@ -1,6 +1,6 @@
-import socket from "../socket";
-import {store} from "../store";
-import {switchToChannel} from "../router";
+import socket from "../socket.ts";
+import {store} from "../store.ts";
+import {switchToChannel} from "../router.ts";
 
 socket.on("part", async function (data) {
 	// When parting from the active channel/query, jump to the network's lobby

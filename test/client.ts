@@ -1,10 +1,10 @@
 import {expect} from "chai";
-import {NetworkConfig} from "../server/models/network";
-import {ChanConfig} from "../server/models/chan";
-import {ChanType} from "../shared/types/chan";
-import ClientManager from "../server/clientManager";
-import Client from "../server/client";
-import log from "../server/log";
+import type {NetworkConfig} from "../server/models/network.ts";
+import type {ChanConfig} from "../server/models/chan.ts";
+import {ChanType} from "../shared/types/chan.ts";
+import ClientManager from "../server/clientManager.ts";
+import Client from "../server/client.ts";
+import log from "../server/log.ts";
 
 import sinon from "ts-sinon";
 

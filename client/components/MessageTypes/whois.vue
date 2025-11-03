@@ -119,9 +119,9 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, PropType} from "vue";
-import localetime from "../../js/helpers/localetime";
-import {ClientNetwork, ClientMessage} from "../../js/types";
+import {defineComponent, type PropType} from "vue";
+import localetime from "../../js/helpers/localetime.ts";
+import type {ClientNetwork, ClientMessage} from "../../js/types.ts";
 import ParsedMessage from "../ParsedMessage.vue";
 import Username from "../Username.vue";
 

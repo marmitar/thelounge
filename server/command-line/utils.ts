@@ -1,11 +1,11 @@
 import _ from "lodash";
-import log from "../log";
+import log from "../log.ts";
 import colors from "chalk";
-import fs from "fs";
-import Helper from "../helper";
-import Config from "../config";
-import path from "path";
-import {spawn} from "child_process";
+import fs from "node:fs";
+import Helper from "../helper.ts";
+import Config from "../config.ts";
+import path from "node:path";
+import {spawn} from "node:child_process";
 let home: string;
 
 class Utils {

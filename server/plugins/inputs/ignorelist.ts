@@ -1,7 +1,7 @@
-import {PluginInputHandler} from "./index";
-import Msg from "../../models/msg";
-import {ChanType, SpecialChanType} from "../../../shared/types/chan";
-import {MessageType} from "../../../shared/types/msg";
+import type {PluginInputHandler} from "./index.ts";
+import Msg from "../../models/msg.ts";
+import {ChanType, SpecialChanType} from "../../../shared/types/chan.ts";
+import {MessageType} from "../../../shared/types/msg.ts";
 
 const commands = ["ignorelist"];
 

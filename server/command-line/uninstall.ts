@@ -1,8 +1,8 @@
-import log from "../log";
+import log from "../log.ts";
 import colors from "chalk";
 import {Command} from "commander";
-import Config from "../config";
-import Utils from "./utils";
+import Config from "../config.ts";
+import Utils from "./utils.ts";
 
 const program = new Command("uninstall");
 program
@@ -11,9 +11,9 @@ program
 	.on("--help", Utils.extraHelp)
 	.action(async function (packageName: string) {
 		// eslint-disable-next-line @typescript-eslint/no-require-imports
-		const fs = require("fs").promises;
+		const fs = require("node:fs").promises;
 		// eslint-disable-next-line @typescript-eslint/no-require-imports
-		const path = require("path");
+		const path = require("node:path");
 
 		const packagesConfig = path.join(Config.getPackagesPath(), "package.json");
 		// const packages = JSON.parse(fs.readFileSync(packagesConfig, "utf-8"));

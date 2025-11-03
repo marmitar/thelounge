@@ -51,7 +51,7 @@
 </style>
 
 <script lang="ts">
-import eventbus from "../js/eventbus";
+import eventbus from "../js/eventbus.ts";
 import {defineComponent, onMounted, onUnmounted, ref} from "vue";
 
 type ConfirmDialogData = {

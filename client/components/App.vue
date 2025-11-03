@@ -17,12 +17,12 @@
 </template>
 
 <script lang="ts">
-import constants from "../js/constants";
-import eventbus from "../js/eventbus";
-import Mousetrap, {ExtendedKeyboardEvent} from "mousetrap";
-import throttle from "lodash/throttle";
-import storage from "../js/localStorage";
-import isIgnoredKeybind from "../js/helpers/isIgnoredKeybind";
+import constants from "../js/constants.ts";
+import eventbus from "../js/eventbus.ts";
+import Mousetrap, {type ExtendedKeyboardEvent} from "mousetrap";
+import throttle from "lodash/throttle.js";
+import storage from "../js/localStorage.ts";
+import isIgnoredKeybind from "../js/helpers/isIgnoredKeybind.ts";
 
 import Sidebar from "./Sidebar.vue";
 import ImageViewer from "./ImageViewer.vue";
@@ -36,10 +36,10 @@ import {
 	onBeforeUnmount,
 	onMounted,
 	ref,
-	Ref,
-	InjectionKey,
+	type Ref,
+	type InjectionKey,
 } from "vue";
-import {useStore} from "../js/store";
+import {useStore} from "../js/store.ts";
 import type {DebouncedFunc} from "lodash";
 
 export const imageViewerKey = Symbol() as InjectionKey<Ref<typeof ImageViewer | null>>;

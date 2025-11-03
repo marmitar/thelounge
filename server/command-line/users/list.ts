@@ -1,14 +1,14 @@
-import log from "../../log";
+import log from "../../log.ts";
 import colors from "chalk";
 import {Command} from "commander";
-import Utils from "../utils";
+import Utils from "../utils.ts";
 
 const program = new Command("list");
 program
 	.description("List all users")
 	.on("--help", Utils.extraHelp)
 	.action(async function () {
-		const ClientManager = (await import("../../clientManager")).default;
+		const ClientManager = (await import("../../clientManager.ts")).default;
 		const users = new ClientManager().getUsers();
 
 		if (users === undefined) {

@@ -1,7 +1,7 @@
-import eventbus from "../eventbus";
-import socket from "../socket";
-import {ClientChan} from "../types";
-import {ChanType} from "../../../shared/types/chan";
+import eventbus from "../eventbus.ts";
+import socket from "../socket.ts";
+import type {ClientChan} from "../types.ts";
+import {ChanType} from "../../../shared/types/chan.ts";
 
 export default function useCloseChannel(channel: ClientChan) {
 	return () => {

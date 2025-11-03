@@ -1,12 +1,12 @@
 import _ from "lodash";
-import {IrcEventHandler} from "../../client";
+import type {IrcEventHandler} from "../../client.ts";
 
-import log from "../../log";
-import Msg from "../../models/msg";
-import Helper from "../../helper";
-import Config from "../../config";
-import {MessageType} from "../../../shared/types/msg";
-import {ChanType, ChanState} from "../../../shared/types/chan";
+import log from "../../log.ts";
+import Msg from "../../models/msg.ts";
+import Helper from "../../helper.ts";
+import Config from "../../config.ts";
+import {MessageType} from "../../../shared/types/msg.ts";
+import {ChanType, ChanState} from "../../../shared/types/chan.ts";
 
 export default <IrcEventHandler>function (irc, network) {
 	const client = this;

@@ -1,5 +1,5 @@
 import * as webpack from "webpack";
-import * as path from "path";
+import path from "node:path";
 import CopyPlugin from "copy-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";

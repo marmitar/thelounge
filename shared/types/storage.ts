@@ -1,4 +1,4 @@
-import {SharedMsg} from "./msg";
+import type {SharedMsg} from "./msg.ts";
 
 export type SearchQuery = {
 	searchTerm: string;

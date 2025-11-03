@@ -121,8 +121,8 @@
 </template>
 
 <script lang="ts">
-import socket from "../js/socket";
-import eventbus from "../js/eventbus";
+import socket from "../js/socket.ts";
+import eventbus from "../js/eventbus.ts";
 import ParsedMessage from "./ParsedMessage.vue";
 import MessageList from "./MessageList.vue";
 import ChatInput from "./ChatInput.vue";
@@ -133,10 +133,19 @@ import ListBans from "./Special/ListBans.vue";
 import ListInvites from "./Special/ListInvites.vue";
 import ListChannels from "./Special/ListChannels.vue";
 import ListIgnored from "./Special/ListIgnored.vue";
-import {defineComponent, PropType, ref, computed, watch, nextTick, onMounted, Component} from "vue";
-import type {ClientNetwork, ClientChan} from "../js/types";
-import {useStore} from "../js/store";
-import {SpecialChanType, ChanType} from "../../shared/types/chan";
+import {
+	defineComponent,
+	type PropType,
+	ref,
+	computed,
+	watch,
+	nextTick,
+	onMounted,
+	type Component,
+} from "vue";
+import type {ClientNetwork, ClientChan} from "../js/types.ts";
+import {useStore} from "../js/store.ts";
+import {SpecialChanType, ChanType} from "../../shared/types/chan.ts";
 
 export default defineComponent({
 	name: "Chat",

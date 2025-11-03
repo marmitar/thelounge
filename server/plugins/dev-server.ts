@@ -1,11 +1,11 @@
 import webpackDevMiddleware from "webpack-dev-middleware";
 import webpackHotMiddleware from "webpack-hot-middleware";
-import express from "express";
+import type express from "express";
 
-import log from "../log";
+import log from "../log.ts";
 
 import webpack from "webpack";
-import config from "../../webpack.config";
+import config from "../../webpack.config.ts";
 
 export default (app: express.Application) => {
 	log.debug("Starting server in development mode");

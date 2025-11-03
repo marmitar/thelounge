@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
-import log from "../log";
-import fs from "fs";
-import path from "path";
+import log from "../log.ts";
+import fs from "node:fs";
+import path from "node:path";
 import colors from "chalk";
 import {Command} from "commander";
-import Helper from "../helper";
-import Config from "../config";
-import Utils from "./utils";
+import Helper from "../helper.ts";
+import Config from "../config.ts";
+import Utils from "./utils.ts";
 
 const program = new Command("thelounge");
 program
@@ -37,15 +37,15 @@ createPackagesFolder();
 // Merge config key-values passed as CLI options into the main config
 Config.merge(program.opts().config);
 
-program.addCommand(require("./start").default);
-program.addCommand(require("./install").default);
-program.addCommand(require("./uninstall").default);
-program.addCommand(require("./upgrade").default);
-program.addCommand(require("./outdated").default);
-program.addCommand(require("./storage").default);
+program.addCommand(require("./start.js").default);
+program.addCommand(require("./install.js").default);
+program.addCommand(require("./uninstall.js").default);
+program.addCommand(require("./upgrade.js").default);
+program.addCommand(require("./outdated.js").default);
+program.addCommand(require("./storage.js").default);
 
 if (!Config.values.public) {
-	require("./users").default.forEach((command: Command) => {
+	require("./users.js").default.forEach((command: Command) => {
 		if (command) {
 			program.addCommand(command);
 		}

@@ -1,17 +1,17 @@
 import _ from "lodash";
 import {v4 as uuidv4} from "uuid";
-import IrcFramework, {Client as IRCClient} from "irc-framework";
-import Chan, {ChanConfig, Channel} from "./chan";
-import Msg from "./msg";
-import Prefix from "./prefix";
-import Helper, {Hostmask} from "../helper";
-import Config, {WebIRC} from "../config";
-import STSPolicies from "../plugins/sts";
-import ClientCertificate, {ClientCertificateType} from "../plugins/clientCertificate";
-import Client from "../client";
-import {MessageType} from "../../shared/types/msg";
-import {ChanType} from "../../shared/types/chan";
-import {SharedNetwork} from "../../shared/types/network";
+import IrcFramework, {type Client as IRCClient} from "irc-framework";
+import Chan, {type ChanConfig, type Channel} from "./chan.ts";
+import Msg from "./msg.ts";
+import Prefix from "./prefix.ts";
+import Helper, {type Hostmask} from "../helper.ts";
+import Config, {type WebIRC} from "../config.ts";
+import STSPolicies from "../plugins/sts.ts";
+import ClientCertificate, {type ClientCertificateType} from "../plugins/clientCertificate.ts";
+import type Client from "../client.ts";
+import {MessageType} from "../../shared/types/msg.ts";
+import {ChanType} from "../../shared/types/chan.ts";
+import type {SharedNetwork} from "../../shared/types/network.ts";
 
 type NetworkIrcOptions = {
 	host: string;

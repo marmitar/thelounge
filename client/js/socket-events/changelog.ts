@@ -1,5 +1,5 @@
-import socket from "../socket";
-import {store} from "../store";
+import socket from "../socket.ts";
+import {store} from "../store.ts";
 
 socket.on("changelog", function (data) {
 	store.commit("versionData", data);

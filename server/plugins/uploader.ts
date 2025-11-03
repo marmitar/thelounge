@@ -1,16 +1,16 @@
-import Config from "../config";
-import busboy, {BusboyFileStream, BusboyHeaders} from "@fastify/busboy";
+import Config from "../config.ts";
+import busboy, {type BusboyFileStream, type BusboyHeaders} from "@fastify/busboy";
 import {v4 as uuidv4} from "uuid";
-import path from "path";
-import fs from "fs";
+import path from "node:path";
+import fs from "node:fs";
 import {fileTypeFromBuffer} from "file-type/core";
 import {readChunk} from "read-chunk";
-import crypto from "crypto";
-import {isUtf8} from "buffer";
-import log from "../log";
+import crypto from "node:crypto";
+import {isUtf8} from "node:buffer";
+import log from "../log.ts";
 import contentDisposition from "content-disposition";
 import type {Socket} from "socket.io";
-import {Request, Response} from "express";
+import type {Request, Response} from "express";
 import type {Express} from "express-serve-static-core";
 
 // Map of allowed mime types to their respecive default filenames

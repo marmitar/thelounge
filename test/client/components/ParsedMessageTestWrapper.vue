@@ -6,8 +6,8 @@
 
 <script lang="ts">
 import ParsedMessage from "../../../client/components/ParsedMessage.vue";
-import {defineComponent, PropType} from "vue";
-import {ClientMessage, ClientNetwork} from "../../../client/js/types";
+import {defineComponent, type PropType} from "vue";
+import type {ClientMessage, ClientNetwork} from "../../../client/js/types.ts";
 
 export default defineComponent({
 	name: "ParsedMessageTestWrapper",

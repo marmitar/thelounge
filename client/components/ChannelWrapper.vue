@@ -33,12 +33,12 @@
 </template>
 
 <script lang="ts">
-import eventbus from "../js/eventbus";
-import isChannelCollapsed from "../js/helpers/isChannelCollapsed";
-import {ClientNetwork, ClientChan} from "../js/types";
-import {computed, defineComponent, PropType} from "vue";
-import {useStore} from "../js/store";
-import {switchToChannel} from "../js/router";
+import eventbus from "../js/eventbus.ts";
+import isChannelCollapsed from "../js/helpers/isChannelCollapsed.ts";
+import type {ClientNetwork, ClientChan} from "../js/types.ts";
+import {computed, defineComponent, type PropType} from "vue";
+import {useStore} from "../js/store.ts";
+import {switchToChannel} from "../js/router.ts";
 
 export default defineComponent({
 	name: "ChannelWrapper",

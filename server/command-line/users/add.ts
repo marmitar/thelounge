@@ -1,10 +1,10 @@
-import log from "../../log";
+import log from "../../log.ts";
 import colors from "chalk";
 import {Command} from "commander";
-import fs from "fs";
-import Helper from "../../helper";
-import Config from "../../config";
-import Utils from "../utils";
+import fs from "node:fs";
+import Helper from "../../helper.ts";
+import Config from "../../config.ts";
+import Utils from "../utils.ts";
 
 const program = new Command("add");
 program
@@ -20,7 +20,7 @@ program
 		}
 
 		// eslint-disable-next-line @typescript-eslint/no-require-imports
-		const ClientManager = require("../../clientManager").default;
+		const ClientManager = require("../../clientManager.js").default;
 		const manager = new ClientManager();
 		const users = manager.getUsers();
 

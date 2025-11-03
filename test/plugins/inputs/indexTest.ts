@@ -1,5 +1,5 @@
 import {expect} from "chai";
-import inputs from "../../../server/plugins/inputs";
+import inputs from "../../../server/plugins/inputs/index.ts";
 
 describe("inputs", function () {
 	describe(".getCommands", function () {

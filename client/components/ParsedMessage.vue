@@ -1,7 +1,7 @@
 <script lang="ts">
-import {defineComponent, PropType, h} from "vue";
-import parse from "../js/helpers/parse";
-import type {ClientMessage, ClientNetwork} from "../js/types";
+import {defineComponent, type PropType} from "vue";
+import parse from "../js/helpers/parse.ts";
+import type {ClientMessage, ClientNetwork} from "../js/types.ts";
 
 export default defineComponent({
 	name: "ParsedMessage",

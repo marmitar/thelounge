@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
-import path from "path";
-import fs, {Stats} from "fs";
-import os from "os";
+import path from "node:path";
+import fs, {type Stats} from "node:fs";
+import os from "node:os";
 import _ from "lodash";
 import colors from "chalk";
-import {SearchOptions} from "ldapjs";
+import type {SearchOptions} from "ldapjs";
 
-import log from "./log";
-import Helper from "./helper";
-import Utils from "./command-line/utils";
-import Network from "./models/network";
+import log from "./log.ts";
+import Helper from "./helper.ts";
+import Utils from "./command-line/utils.ts";
+import type Network from "./models/network.ts";
 
 // TODO: Type this
 export type WebIRC = {

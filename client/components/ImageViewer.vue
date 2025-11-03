@@ -41,9 +41,9 @@
 <script lang="ts">
 import Mousetrap from "mousetrap";
 import {computed, defineComponent, ref, watch} from "vue";
-import eventbus from "../js/eventbus";
-import {ClientChan, ClientLinkPreview} from "../js/types";
-import {SharedMsg} from "../../shared/types/msg";
+import eventbus from "../js/eventbus.ts";
+import type {ClientChan, ClientLinkPreview} from "../js/types.ts";
+import type {SharedMsg} from "../../shared/types/msg.ts";
 
 export default defineComponent({
 	name: "ImageViewer",

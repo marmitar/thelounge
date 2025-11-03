@@ -55,15 +55,15 @@
 <script lang="ts">
 import Mousetrap from "mousetrap";
 import {wrapCursor} from "undate";
-import autocompletion from "../js/autocompletion";
-import {commands} from "../js/commands/index";
-import socket from "../js/socket";
-import upload from "../js/upload";
-import eventbus from "../js/eventbus";
-import {watch, defineComponent, nextTick, onMounted, PropType, ref, onUnmounted} from "vue";
-import type {ClientNetwork, ClientChan} from "../js/types";
-import {useStore} from "../js/store";
-import {ChanType} from "../../shared/types/chan";
+import autocompletion from "../js/autocompletion.ts";
+import {commands} from "../js/commands/index.ts";
+import socket from "../js/socket.ts";
+import upload from "../js/upload.ts";
+import eventbus from "../js/eventbus.ts";
+import {watch, defineComponent, nextTick, onMounted, type PropType, ref, onUnmounted} from "vue";
+import type {ClientNetwork, ClientChan} from "../js/types.ts";
+import {useStore} from "../js/store.ts";
+import {ChanType} from "../../shared/types/chan.ts";
 
 const formattingHotkeys = {
 	"mod+k": "\x03",

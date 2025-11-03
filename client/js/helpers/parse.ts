@@ -1,19 +1,19 @@
 // TODO: type
 // @ts-nocheck
 
-import {h as createElement, VNode} from "vue";
-import parseStyle from "./ircmessageparser/parseStyle";
-import findChannels from "./ircmessageparser/findChannels";
-import {findLinks} from "../../../shared/linkify";
-import findEmoji from "./ircmessageparser/findEmoji";
-import findNames from "./ircmessageparser/findNames";
-import merge, {MergedParts} from "./ircmessageparser/merge";
+import {h as createElement, type VNode} from "vue";
+import parseStyle from "./ircmessageparser/parseStyle.ts";
+import findChannels from "./ircmessageparser/findChannels.ts";
+import {findLinks} from "../../../shared/linkify.ts";
+import findEmoji from "./ircmessageparser/findEmoji.ts";
+import findNames from "./ircmessageparser/findNames.ts";
+import merge, {type MergedParts} from "./ircmessageparser/merge.ts";
 import emojiMap from "./fullnamemap.json";
 import LinkPreviewToggle from "../../components/LinkPreviewToggle.vue";
 import LinkPreviewFileSize from "../../components/LinkPreviewFileSize.vue";
 import InlineChannel from "../../components/InlineChannel.vue";
 import Username from "../../components/Username.vue";
-import {ClientMessage, ClientNetwork} from "../types";
+import type {ClientMessage, ClientNetwork} from "../types.ts";
 
 const emojiModifiersRegex = /[\u{1f3fb}-\u{1f3ff}]|\u{fe0f}/gu;
 

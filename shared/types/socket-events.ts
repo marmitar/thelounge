@@ -1,11 +1,11 @@
-import {SharedMention} from "./mention";
-import {ChanState, SharedChan} from "./chan";
-import {SharedNetwork, SharedNetworkChan, SharedServerOptions} from "./network";
-import {SharedMsg, LinkPreview} from "./msg";
-import {SharedUser} from "./user";
-import {SharedChangelogData} from "./changelog";
-import {SharedConfiguration, LockedSharedConfiguration} from "./config";
-import {SearchResponse, SearchQuery} from "./storage";
+import type {SharedMention} from "./mention.ts";
+import type {ChanState, SharedChan} from "./chan.ts";
+import type {SharedNetwork, SharedServerOptions, SharedNetworkChan} from "./network.ts";
+import type {SharedMsg, LinkPreview} from "./msg.ts";
+import type {SharedUser} from "./user.ts";
+import type {SharedChangelogData} from "./changelog.ts";
+import type {SharedConfiguration, LockedSharedConfiguration} from "./config.ts";
+import type {SearchResponse, SearchQuery} from "./storage.ts";
 
 export type Session = {
 	current: boolean;
