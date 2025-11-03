@@ -1,3 +1,4 @@
+// @ts-ignore FIXME: typing issue under `"moduleResolution": "node10"`
 /** @type {import("stylelint").Config} */
 export default {
 	extends: "stylelint-config-standard",
