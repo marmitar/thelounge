@@ -4,6 +4,7 @@ import {v4 as uuidv4} from "uuid";
 import escapeRegExp from "lodash/escapeRegExp";
 import crypto from "crypto";
 import colors from "chalk";
+import type WebPushAPI from "web-push";
 
 import log from "./log";
 import Chan, {ChanConfig} from "./models/chan";
@@ -24,7 +25,7 @@ import {StorageCleaner} from "./storageCleaner";
 import {SearchQuery, SearchResponse} from "../shared/types/storage";
 import {SharedChan, ChanType} from "../shared/types/chan";
 import {SharedNetwork} from "../shared/types/network";
-import {ServerToClientEvents} from "../shared/types/socket-events";
+import {ClientPushSubscription, ServerToClientEvents} from "../shared/types/socket-events";
 
 const events = [
 	"away",
@@ -54,14 +55,6 @@ const events = [
 	"whois",
 ];
 
-type ClientPushSubscription = {
-	endpoint: string;
-	keys: {
-		p256dh: string;
-		auth: string;
-	};
-};
-
 export type UserConfig = {
 	log: boolean;
 	password: string;
@@ -70,7 +63,7 @@ export type UserConfig = {
 			lastUse: number;
 			ip: string;
 			agent: string;
-			pushSubscription?: ClientPushSubscription;
+			pushSubscription?: WebPushAPI.PushSubscription | null;
 		};
 	};
 	clientSettings: {
@@ -815,8 +808,11 @@ class Client {
 		}
 	}
 
-	// TODO: type session to this.attachedClients
-	registerPushSubscription(session: any, subscription: PushSubscriptionJSON, noSave = false) {
+	registerPushSubscription(
+		session: UserConfig["sessions"][string],
+		subscription: ClientPushSubscription,
+		noSave = false
+	) {
 		if (
 			!_.isPlainObject(subscription) ||
 			typeof subscription.endpoint !== "string" ||

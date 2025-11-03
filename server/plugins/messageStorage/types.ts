@@ -1,9 +1,6 @@
-import type {Database} from "sqlite3";
-
-import {Channel} from "../../models/channel";
-import {Message} from "../../models/message";
-import {Network} from "../../models/network";
-import Client from "../../client";
+import {Channel} from "../../models/chan";
+import {Message} from "../../models/msg";
+import Network from "../../models/network";
 import {SearchQuery, SearchResponse} from "../../../shared/types/storage";
 import type {MessageType} from "../../../shared/types/msg";
 
@@ -13,7 +10,7 @@ export type DeletionRequest = {
 	limit: number; // -1 means unlimited
 };
 
-interface MessageStorage {
+export interface MessageStorage {
 	isEnabled: boolean;
 
 	enable(): Promise<void>;
@@ -29,7 +26,7 @@ interface MessageStorage {
 	canProvideMessages(): boolean;
 }
 
-type SearchFunction = (query: SearchQuery) => Promise<SearchResponse>;
+export type SearchFunction = (query: SearchQuery) => Promise<SearchResponse>;
 
 export interface SearchableMessageStorage extends MessageStorage {
 	search: SearchFunction;

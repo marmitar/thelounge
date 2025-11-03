@@ -64,7 +64,7 @@ type SearchDN = {
 type Ldap = {
 	enable: boolean;
 	url: string;
-	tlsOptions: any;
+	tlsOptions: TlsOptions;
 	primaryKey: string;
 	searchDN: SearchDN;
 	baseDN?: string;

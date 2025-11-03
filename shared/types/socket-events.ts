@@ -1,13 +1,13 @@
 import {SharedMention} from "./mention";
 import {ChanState, SharedChan} from "./chan";
-import {SharedNetwork, SharedServerOptions} from "./network";
+import {SharedNetwork, SharedNetworkChan, SharedServerOptions} from "./network";
 import {SharedMsg, LinkPreview} from "./msg";
 import {SharedUser} from "./user";
 import {SharedChangelogData} from "./changelog";
 import {SharedConfiguration, LockedSharedConfiguration} from "./config";
 import {SearchResponse, SearchQuery} from "./storage";
 
-type Session = {
+export type Session = {
 	current: boolean;
 	active: number;
 	lastUse: number;
@@ -16,10 +16,10 @@ type Session = {
 	token: string;
 };
 
-type EventHandler<T> = (data: T) => void;
-type NoPayloadEventHandler = EventHandler<void>;
+export type EventHandler<T> = (data: T) => void;
+export type NoPayloadEventHandler = EventHandler<void>;
 
-interface ServerToClientEvents {
+export interface ServerToClientEvents {
 	"auth:start": (serverHash: number) => void;
 	"auth:failed": NoPayloadEventHandler;
 	"auth:success": NoPayloadEventHandler;
@@ -101,7 +101,7 @@ interface ServerToClientEvents {
 	}>;
 }
 
-type AuthPerformData =
+export type AuthPerformData =
 	| Record<string, never> // funny way of saying an empty object
 	| {user: string; password: string}
 	| {
@@ -112,7 +112,15 @@ type AuthPerformData =
 			hasConfig: boolean;
 	  };
 
-interface ClientToServerEvents {
+export type ClientPushSubscription = {
+	endpoint?: string;
+	keys?: {
+		p256dh?: string;
+		auth?: string;
+	};
+};
+
+export interface ClientToServerEvents {
 	"auth:perform": EventHandler<AuthPerformData>;
 
 	changelog: NoPayloadEventHandler;
@@ -134,7 +142,7 @@ interface ClientToServerEvents {
 
 	"mute:change": EventHandler<{target: number; setMutedTo: boolean}>;
 
-	"push:register": EventHandler<PushSubscriptionJSON>;
+	"push:register": EventHandler<ClientPushSubscription>;
 	"push:unregister": NoPayloadEventHandler;
 
 	"setting:get": NoPayloadEventHandler;
@@ -174,10 +182,10 @@ interface ClientToServerEvents {
 	search: EventHandler<SearchQuery>;
 }
 
-interface InterServerEvents {
+export interface InterServerEvents {
 	[EventName: string]: never;
 }
 
-interface SocketData {
+export interface SocketData {
 	[_: string]: never;
 }
