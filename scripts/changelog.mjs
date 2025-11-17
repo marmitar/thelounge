@@ -45,15 +45,15 @@ node scripts/changelog <version>
 
 "use strict";
 
-const _ = require("lodash");
-const colors = require("chalk").default;
-const fs = require("node:fs");
-const path = require("node:path");
-const got = require("got").default;
-const dayjs = require("dayjs");
-const semver = require("semver");
-const util = require("node:util");
-const packageJson = require("../package.json");
+import _ from "lodash";
+import colors from "chalk";
+import fs from "node:fs";
+import path from "node:path";
+import got from "got";
+import dayjs from "dayjs";
+import semver from "semver";
+import util from "node:util";
+import packageJson from "../package.json";
 let token = process.env.CHANGELOG_TOKEN;
 
 const readFile = util.promisify(fs.readFile);
@@ -85,13 +85,16 @@ const log = {
 	/* eslint-enable no-console */
 };
 
-const changelogPath = path.resolve(__dirname, "..", "CHANGELOG.md");
+const changelogPath = path.resolve(import.meta.dirname, "..", "CHANGELOG.md");
 
 // CLI argument validations
 
 if (token === undefined) {
 	try {
-		token = fs.readFileSync(path.resolve(__dirname, "./github_token.txt")).toString().trim();
+		token = fs
+			.readFileSync(path.resolve(import.meta.dirname, "./github_token.txt"))
+			.toString()
+			.trim();
 	} catch {
 		log.error(`Environment variable ${colors.bold("CHANGELOG_TOKEN")} must be set.`);
 		log.error(`Alternative create ${colors.bold("scripts/github_token.txt")} file.`);

@@ -18,8 +18,7 @@ program
 			return;
 		}
 
-		// eslint-disable-next-line @typescript-eslint/no-require-imports
-		const ClientManager = require("../../clientManager.js").default;
+		const ClientManager = (await import("../../clientManager.ts")).default;
 		const users = new ClientManager().getUsers();
 
 		if (users === undefined) {

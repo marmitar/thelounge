@@ -11,13 +11,11 @@ program
 	.description("Start the server")
 	.option("--dev", "Development mode with hot module reloading")
 	.on("--help", Utils.extraHelp)
-	.action(function (options) {
+	.action(async function (options) {
 		initalizeConfig();
 
-		const newLocal = "../server";
-		// eslint-disable-next-line @typescript-eslint/no-require-imports
-		const server = require(newLocal);
-		server.default(options);
+		const server = await import("../server.ts");
+		await server.default(options);
 	});
 
 function initalizeConfig() {

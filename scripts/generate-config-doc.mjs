@@ -8,10 +8,10 @@
 // npm run generate:config:doc ../thelounge.github.io/
 // ```
 
-const {readFileSync, writeFileSync} = require("node:fs");
-const colors = require("chalk").default;
-const {join} = require("node:path");
-const {spawnSync} = require("node:child_process");
+import {readFileSync, writeFileSync} from "node:fs";
+import colors from "chalk";
+import {join} from "node:path";
+import {spawnSync} from "node:child_process";
 
 function timestamp() {
 	const datetime = new Date().toISOString().split(".")[0].replace("T", " ");
@@ -43,7 +43,10 @@ function getGitUsername() {
 	return spawnSync("git", ["config", "user.name"], {encoding: "utf8"}).stdout.trim();
 }
 
-const configContent = readFileSync(join(__dirname, "..", "defaults", "config.js"), "utf8");
+const configContent = readFileSync(
+	join(import.meta.dirname, "..", "defaults", "config.js"),
+	"utf8"
+);
 
 const docRoot = process.argv[2];
 

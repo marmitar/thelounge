@@ -1,15 +1,14 @@
 #!/usr/bin/env node
 
-"use strict";
-
-process.chdir(__dirname);
-
+import fs from "node:fs";
+import {fileURLToPath} from "node:url";
+import semver from "semver";
 // Perform node version check before loading any other files or modules
 // Doing this check as soon as possible allows us to
 // avoid ES6 parser errors or other issues
-const pkg = require("./package.json");
+import pkg from "./package.json";
 
-if (!require("semver").satisfies(process.version, pkg.engines.node)) {
+if (!semver.satisfies(process.version, pkg.engines.node)) {
 	/* eslint-disable no-console */
 	console.error(
 		"The Lounge requires Node.js " +
@@ -25,14 +24,12 @@ if (!require("semver").satisfies(process.version, pkg.engines.node)) {
 	process.exit(1);
 }
 
-const fs = require("node:fs");
-
-if (fs.existsSync("./dist/server/index.js")) {
-	require("./dist/server/index.js");
-} else {
+if (!fs.existsSync(fileURLToPath(import.meta.resolve("./dist/server/index.js")))) {
 	console.error(
 		"Files in ./dist/server/ not found. Please run `yarn build` before trying to run `node index.js`."
 	);
 
 	process.exit(1);
 }
+
+import "./dist/server/index.js";

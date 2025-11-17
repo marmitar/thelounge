@@ -100,9 +100,9 @@ class Network {
 	username!: string;
 	realname!: string;
 	leaveMessage!: string;
-	sasl!: string;
-	saslAccount!: string;
-	saslPassword!: string;
+	sasl?: string;
+	saslAccount?: string;
+	saslPassword?: string;
 	channels!: Chan[];
 	uuid!: string;
 	proxyHost!: string;
@@ -199,7 +199,8 @@ class Network {
 		const cleanNick = (str: string) => str.replace(/[\x00\s:!@]/g, "_").substring(0, 100);
 
 		// Remove new lines and limit length
-		const cleanString = (str: string) => str.replace(/[\x00\r\n]/g, "").substring(0, 300);
+		const cleanString = (str: string | undefined) =>
+			str?.replace(/[\x00\r\n]/g, "").substring(0, 300) ?? "";
 
 		this.setNick(cleanNick(String(this.nick || Config.getDefaultNick())));
 
@@ -238,7 +239,7 @@ class Network {
 			this.port = this.tls ? 6697 : 6667;
 		}
 
-		if (!["", "plain", "external"].includes(this.sasl)) {
+		if (this.sasl !== "plain" && this.sasl !== "external") {
 			this.sasl = "";
 		}
 
@@ -349,8 +350,8 @@ class Network {
 		} else if (this.sasl === "plain") {
 			delete this.irc.options.sasl_mechanism;
 			this.irc.options.account = {
-				account: this.saslAccount,
-				password: this.saslPassword,
+				account: this.saslAccount ?? "",
+				password: this.saslPassword ?? "",
 			};
 		}
 	}

@@ -10,10 +10,8 @@ program
 	.description("Uninstall a theme or a package")
 	.on("--help", Utils.extraHelp)
 	.action(async function (packageName: string) {
-		// eslint-disable-next-line @typescript-eslint/no-require-imports
-		const fs = require("node:fs").promises;
-		// eslint-disable-next-line @typescript-eslint/no-require-imports
-		const path = require("node:path");
+		const fs = await import("node:fs/promises");
+		const path = await import("node:path");
 
 		const packagesConfig = path.join(Config.getPackagesPath(), "package.json");
 		// const packages = JSON.parse(fs.readFileSync(packagesConfig, "utf-8"));

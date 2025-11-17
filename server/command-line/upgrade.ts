@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 import log from "../log.ts";
 import colors from "chalk";
 import {Command} from "commander";
@@ -10,9 +9,9 @@ program
 	.arguments("[packages...]")
 	.description("Upgrade installed themes and packages to their latest versions")
 	.on("--help", Utils.extraHelp)
-	.action(function (packages) {
-		const fs = require("node:fs");
-		const path = require("node:path");
+	.action(async function (packages) {
+		const fs = await import("node:fs");
+		const path = await import("node:path");
 
 		// Get paths to the location of packages directory
 		const packagesConfig = path.join(Config.getPackagesPath(), "package.json");

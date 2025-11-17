@@ -1,9 +1,8 @@
 #!/usr/bin/env node
-"use strict";
 
-const got = require("got").default;
-const path = require("node:path");
-const fs = require("node:fs");
+import got from "got";
+import path from "node:path";
+import fs from "node:fs";
 
 // same regex as found in client/../parse.js
 const emojiModifiersRegex = /[\u{1f3fb}-\u{1f3ff}]|\u{fe0f}/gu;
@@ -36,12 +35,16 @@ const emojiModifiersRegex = /[\u{1f3fb}-\u{1f3ff}]|\u{fe0f}/gu;
 	const fullNameEmojiMapOutput = JSON.stringify(fullNameEmojiMap, null, 2) + "\n";
 
 	fs.writeFileSync(
-		path.resolve(path.join(__dirname, "..", "client", "js", "helpers", "simplemap.json")),
+		path.resolve(
+			path.join(import.meta.dirname, "..", "client", "js", "helpers", "simplemap.json")
+		),
 		emojiMapOutput
 	);
 
 	fs.writeFileSync(
-		path.resolve(path.join(__dirname, "..", "client", "js", "helpers", "fullnamemap.json")),
+		path.resolve(
+			path.join(import.meta.dirname, "..", "client", "js", "helpers", "fullnamemap.json")
+		),
 		fullNameEmojiMapOutput
 	);
 })();

@@ -8,11 +8,14 @@ import type {SharedChangelogData} from "../../shared/types/changelog.ts";
 
 const TIME_TO_LIVE = 15 * 60 * 1000; // 15 minutes, in milliseconds
 
-export default {
+const exported = {
 	isUpdateAvailable: false,
 	fetch,
 	checkForUpdates,
 };
+
+export default exported;
+
 const versions: SharedChangelogData = {
 	current: {
 		prerelease: false,
@@ -84,7 +87,7 @@ function updateVersions(response: Response<string>) {
 
 			// Find latest release or pre-release if current version is also a pre-release
 			if (!release.prerelease || release.prerelease === prerelease) {
-				module.exports.isUpdateAvailable = true;
+				exported.isUpdateAvailable = true;
 
 				versions.latest = {
 					prerelease: release.prerelease,
@@ -101,7 +104,7 @@ function updateVersions(response: Response<string>) {
 function checkForUpdates(manager: ClientManager) {
 	fetch()
 		.then((versionData) => {
-			if (!module.exports.isUpdateAvailable) {
+			if (!exported.isUpdateAvailable) {
 				// Check for updates every 24 hours + random jitter of <3 hours
 				setTimeout(
 					() => checkForUpdates(manager),

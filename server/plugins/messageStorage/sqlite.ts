@@ -11,19 +11,20 @@ import type {SearchableMessageStorage, DeletionRequest} from "./types.ts";
 import type Network from "../../models/network.ts";
 import type {SearchQuery, SearchResponse} from "../../../shared/types/storage.ts";
 
-// TODO; type
-let sqlite3: any;
+let sqlite3: typeof import("sqlite3");
 
-try {
-	// eslint-disable-next-line @typescript-eslint/no-require-imports
-	sqlite3 = require("sqlite3");
-} catch (e: any) {
-	Config.values.messageStorage = Config.values.messageStorage.filter((item) => item !== "sqlite");
+// TODO: top-level await
+import("sqlite3")
+	.then((module) => (sqlite3 = module))
+	.catch(() => {
+		Config.values.messageStorage = Config.values.messageStorage.filter(
+			(item) => item !== "sqlite"
+		);
 
-	log.error(
-		"Unable to load sqlite3 module. See https://github.com/mapbox/node-sqlite3/wiki/Binaries"
-	);
-}
+		log.error(
+			"Unable to load sqlite3 module. See https://github.com/mapbox/node-sqlite3/wiki/Binaries"
+		);
+	});
 
 type Migration = {version: number; stmts: string[]};
 type Rollback = {version: number; rollback_forbidden?: boolean; stmts: string[]};

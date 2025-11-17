@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 import path from "node:path";
 import fs, {type Stats} from "node:fs";
 import os from "node:os";
@@ -10,6 +9,8 @@ import log from "./log.ts";
 import Helper from "./helper.ts";
 import Utils from "./command-line/utils.ts";
 import type Network from "./models/network.ts";
+
+import defaultConfig from "../defaults/config.js";
 
 // TODO: Type this
 export type WebIRC = {
@@ -26,7 +27,7 @@ type Https = {
 type FileUpload = {
 	enable: boolean;
 	maxFileSize: number;
-	baseUrl?: string;
+	baseUrl?: string | null | undefined;
 };
 
 export type Defaults = Pick<
@@ -106,18 +107,30 @@ export type ConfigType = {
 	messageStorage: string[];
 	storagePolicy: StoragePolicy;
 	useHexIp: boolean;
-	webirc?: WebIRC;
+	webirc?: WebIRC | null;
 	identd: Identd;
-	oidentd?: string;
+	oidentd?: string | null;
 	ldap: Ldap;
 	debug: Debug;
-	themeColor: string;
+	themeColor?: string;
 };
 
 class Config {
-	values = require(
-		path.resolve(path.join(__dirname, "..", "defaults", "config.js"))
-	) as ConfigType;
+	values: ConfigType = {
+		...defaultConfig,
+		ldap: {
+			...defaultConfig.ldap,
+			searchDN: {
+				...defaultConfig.ldap.searchDN,
+				scope: defaultConfig.ldap.searchDN.scope as SearchDN["scope"],
+			},
+		},
+		storagePolicy: {
+			...defaultConfig.storagePolicy,
+			deletionPolicy: defaultConfig.storagePolicy
+				.deletionPolicy as StoragePolicy["deletionPolicy"],
+		},
+	};
 	#homePath = "";
 
 	getHomePath() {
@@ -205,14 +218,14 @@ class Config {
 		});
 	}
 
-	setHome(newPath: string) {
+	async setHome(newPath: string) {
 		this.#homePath = Helper.expandHome(newPath);
 
 		// Reload config from new home location
 		const configPath = this.getConfigPath();
 
 		if (fs.existsSync(configPath)) {
-			const userConfig = require(configPath);
+			const {default: userConfig} = await import(configPath);
 
 			if (_.isEmpty(userConfig)) {
 				log.warn(

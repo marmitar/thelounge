@@ -5,7 +5,7 @@
   "preferGlobal": true,
   "type": "commonjs",
   "bin": {
-    "thelounge": "index.js"
+    "thelounge": "index.mjs"
   },
   "repository": {
     "type": "git",

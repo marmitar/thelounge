@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 import log from "../log.ts";
 import fs from "node:fs";
 import path from "node:path";
@@ -21,6 +20,7 @@ program
 // Parse options from `argv` returning `argv` void of these options.
 const argvWithoutOptions = program.parseOptions(process.argv);
 
+// eslint-disable-next-line @typescript-eslint/no-floating-promises -- TODO: top-level await
 Config.setHome(process.env.THELOUNGE_HOME || Utils.defaultHome());
 
 // Check config file owner and warn if we're running under a different user
@@ -37,28 +37,41 @@ createPackagesFolder();
 // Merge config key-values passed as CLI options into the main config
 Config.merge(program.opts().config);
 
-program.addCommand(require("./start.js").default);
-program.addCommand(require("./install.js").default);
-program.addCommand(require("./uninstall.js").default);
-program.addCommand(require("./upgrade.js").default);
-program.addCommand(require("./outdated.js").default);
-program.addCommand(require("./storage.js").default);
+const commandModules: Promise<{default: Command}>[] = [
+	import("./start.ts"),
+	import("./install.ts"),
+	import("./uninstall.ts"),
+	import("./upgrade.ts"),
+	import("./outdated.ts"),
+	import("./storage.ts"),
+];
 
 if (!Config.values.public) {
-	require("./users.js").default.forEach((command: Command) => {
-		if (command) {
-			program.addCommand(command);
-		}
-	});
+	commandModules.push(
+		import("./users/list.ts"),
+		import("./users/remove.ts"),
+		import("./users/edit.ts")
+	);
+
+	if (!Config.values.ldap) {
+		commandModules.push(import("./users/add.ts"), import("./users/reset.ts"));
+	}
 }
 
-// `parse` expects to be passed `process.argv`, but we need to remove to give it
-// a version of `argv` that does not contain options already parsed by
-// `parseOptions` above.
-// This is done by giving it the updated `argv` that `parseOptions` returned,
-// except it returns an object with `operands`/`unknown`, so we need to concat them.
-// See https://github.com/tj/commander.js/blob/fefda77f463292/index.js#L686-L763
-program.parse(argvWithoutOptions.operands.concat(argvWithoutOptions.unknown));
+// eslint-disable-next-line @typescript-eslint/no-floating-promises -- TODO: top-level await
+Promise.all(commandModules).then((commands) => {
+	commands.forEach(({default: command}) => {
+		program.addCommand(command);
+	});
+
+	// `parse` expects to be passed `process.argv`, but we need to remove to give it
+	// a version of `argv` that does not contain options already parsed by
+	// `parseOptions` above.
+	// This is done by giving it the updated `argv` that `parseOptions` returned,
+	// except it returns an object with `operands`/`unknown`, so we need to concat them.
+	// See https://github.com/tj/commander.js/blob/fefda77f463292/index.js#L686-L763
+	program.parse(argvWithoutOptions.operands.concat(argvWithoutOptions.unknown));
+});
 
 function createPackagesFolder() {
 	const packagesPath = Config.getPackagesPath();
