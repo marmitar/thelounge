@@ -5,7 +5,7 @@ import ldap from "ldapjs";
 import {expect} from "chai";
 import TestUtil from "../../util.ts";
 import type ClientManager from "../../../server/clientManager.ts";
-import sinon from "ts-sinon";
+import sinon from "sinon";
 
 const user = "johndoe";
 const wrongUser = "eve";

@@ -9,7 +9,8 @@ export default defineConfig(
 	eslint.configs.recommended,
 	{
 		languageOptions: {
-			ecmaVersion: 2022,
+			sourceType: "module",
+			ecmaVersion: 2025,
 		},
 		rules: {
 			"block-scoped-var": "error",
@@ -68,14 +69,12 @@ export default defineConfig(
 	{
 		ignores: ["client/"],
 		languageOptions: {
-			sourceType: "commonjs",
-			globals: globals.node,
+			globals: globals.nodeBuiltin,
 		},
 	},
 	{
 		basePath: "client/",
 		languageOptions: {
-			sourceType: "module",
 			globals: globals.browser,
 		},
 	},

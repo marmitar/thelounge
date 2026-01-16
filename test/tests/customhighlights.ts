@@ -2,7 +2,7 @@ import {expect} from "chai";
 import log from "../../server/log.ts";
 import Client from "../../server/client.ts";
 import TestUtil from "../util.ts";
-import sinon from "ts-sinon";
+import sinon from "sinon";
 
 describe("Custom highlights", function () {
 	let userLoadedLog = "";

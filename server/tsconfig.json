@@ -4,7 +4,7 @@
     ".",
     "../package.json",
     "../webpack.config.ts",
-    "../babel.config.cjs",
+    "../babel.config.js",
     "../defaults/config.js"
   ],
   "references": [{"path": "../shared"}],

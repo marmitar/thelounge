@@ -6,7 +6,7 @@ import semver from "semver";
 // Perform node version check before loading any other files or modules
 // Doing this check as soon as possible allows us to
 // avoid ES6 parser errors or other issues
-import pkg from "./package.json";
+import pkg from "./package.json" with {type: "json"};
 
 if (!semver.satisfies(process.version, pkg.engines.node)) {
 	/* eslint-disable no-console */

@@ -23,7 +23,7 @@ function initalizeConfig() {
 		fs.mkdirSync(Config.getHomePath(), {recursive: true});
 		fs.chmodSync(Config.getHomePath(), "0700");
 		fs.copyFileSync(
-			path.resolve(path.join(__dirname, "..", "..", "defaults", "config.js")),
+			path.resolve(path.join(import.meta.dirname, "..", "..", "defaults", "config.js")),
 			Config.getConfigPath()
 		);
 		log.info(`Configuration file created at ${colors.green(Config.getConfigPath())}.`);

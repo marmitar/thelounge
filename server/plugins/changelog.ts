@@ -1,7 +1,7 @@
 import got, {type Response} from "got";
 import colors from "chalk";
 import log from "../log.ts";
-import pkg from "../../package.json";
+import pkg from "../../package.json" with {type: "json"};
 import type ClientManager from "../clientManager.ts";
 import Config from "../config.ts";
 import type {SharedChangelogData} from "../../shared/types/changelog.ts";

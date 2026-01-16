@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 describe("public folder", function () {
-	const publicFolder = path.join(__dirname, "..", "..", "public");
+	const publicFolder = path.join(import.meta.dirname, "..", "..", "public");
 
 	it("font awesome files are copied", function () {
 		expect(fs.existsSync(path.join(publicFolder, "fonts", "fa-solid-900.woff2"))).to.be.true;

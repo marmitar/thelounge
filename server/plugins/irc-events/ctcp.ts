@@ -3,7 +3,7 @@ import type {IrcEventHandler} from "../../client.ts";
 import Helper from "../../helper.ts";
 import Msg from "../../models/msg.ts";
 import User from "../../models/user.ts";
-import pkg from "../../../package.json";
+import pkg from "../../../package.json" with {type: "json"};
 import {MessageType} from "../../../shared/types/msg.ts";
 
 const ctcpResponses = {

@@ -1,11 +1,11 @@
-import * as webpack from "webpack";
+import webpack from "webpack";
 import path from "node:path";
 import CopyPlugin from "copy-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import {VueLoaderPlugin} from "vue-loader";
-import babelConfig from "./babel.config.cjs";
-import Helper from "./server/helper";
+import babelConfig from "./babel.config.js";
+import Helper from "./server/helper.ts";
 
 const tsCheckerPlugin = new ForkTsCheckerWebpackPlugin({
 	typescript: {
@@ -27,12 +27,12 @@ const isProduction = process.env.NODE_ENV === "production";
 const config: webpack.Configuration = {
 	mode: isProduction ? "production" : "development",
 	entry: {
-		"js/bundle.js": [path.resolve(__dirname, "client/js/vue.ts")],
+		"js/bundle.js": [path.resolve(import.meta.dirname, "client/js/vue.ts")],
 	},
 	devtool: "source-map",
 	output: {
 		clean: true, // Clean the output directory before emit.
-		path: path.resolve(__dirname, "public"),
+		path: path.resolve(import.meta.dirname, "public"),
 		filename: "[name]",
 		publicPath: "/",
 	},
@@ -59,8 +59,11 @@ const config: webpack.Configuration = {
 			},
 			{
 				test: /\.ts$/i,
-				include: [path.resolve(__dirname, "client"), path.resolve(__dirname, "shared")],
-				exclude: path.resolve(__dirname, "node_modules"),
+				include: [
+					path.resolve(import.meta.dirname, "client"),
+					path.resolve(import.meta.dirname, "shared"),
+				],
+				exclude: path.resolve(import.meta.dirname, "node_modules"),
 				use: {
 					loader: "babel-loader",
 					options: babelConfig,
@@ -120,18 +123,21 @@ const config: webpack.Configuration = {
 				{
 					from: path
 						.resolve(
-							__dirname,
+							import.meta.dirname,
 							"node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff*"
 						)
 						.replace(/\\/g, "/"),
 					to: "fonts/[name][ext]",
 				},
 				{
-					from: path.resolve(__dirname, "./client/js/loading-error-handlers.js"),
+					from: path.resolve(
+						import.meta.dirname,
+						"./client/js/loading-error-handlers.js"
+					),
 					to: "js/[name][ext]",
 				},
 				{
-					from: path.resolve(__dirname, "./client/*").replace(/\\/g, "/"),
+					from: path.resolve(import.meta.dirname, "./client/*").replace(/\\/g, "/"),
 					to: "[name][ext]",
 					globOptions: {
 						ignore: [
@@ -143,7 +149,7 @@ const config: webpack.Configuration = {
 					},
 				},
 				{
-					from: path.resolve(__dirname, "./client/service-worker.js"),
+					from: path.resolve(import.meta.dirname, "./client/service-worker.js"),
 					to: "[name][ext]",
 					transform(content) {
 						return content
@@ -155,15 +161,17 @@ const config: webpack.Configuration = {
 					},
 				},
 				{
-					from: path.resolve(__dirname, "./client/audio/*").replace(/\\/g, "/"),
+					from: path.resolve(import.meta.dirname, "./client/audio/*").replace(/\\/g, "/"),
 					to: "audio/[name][ext]",
 				},
 				{
-					from: path.resolve(__dirname, "./client/img/*").replace(/\\/g, "/"),
+					from: path.resolve(import.meta.dirname, "./client/img/*").replace(/\\/g, "/"),
 					to: "img/[name][ext]",
 				},
 				{
-					from: path.resolve(__dirname, "./client/themes/*").replace(/\\/g, "/"),
+					from: path
+						.resolve(import.meta.dirname, "./client/themes/*")
+						.replace(/\\/g, "/"),
 					to: "themes/[name][ext]",
 				},
 			],
@@ -176,8 +184,10 @@ export default (env: any, argv: any) => {
 		config.target = "node";
 		config.devtool = "eval";
 		config.stats = "errors-only";
-		config.output!.path = path.resolve(__dirname, "test/public");
-		config.entry!["testclient.js"] = [path.resolve(__dirname, "test/client/index.ts")];
+		config.output!.path = path.resolve(import.meta.dirname, "test/public");
+		config.entry!["testclient.js"] = [
+			path.resolve(import.meta.dirname, "test/client/index.ts"),
+		];
 
 		// Add the istanbul plugin to babel-loader options
 		for (const rule of config.module!.rules!) {
@@ -201,7 +211,7 @@ export default (env: any, argv: any) => {
 			// Client tests that require Vue may end up requireing socket.io
 			new webpack.NormalModuleReplacementPlugin(
 				/js(\/|\\)socket\.js/,
-				path.resolve(__dirname, "scripts/noop.mjs")
+				path.resolve(import.meta.dirname, "scripts/noop.mjs")
 			),
 		];
 	}

@@ -53,7 +53,7 @@ import got from "got";
 import dayjs from "dayjs";
 import semver from "semver";
 import util from "node:util";
-import packageJson from "../package.json";
+import packageJson from "../package.json" with {type: "json"};
 let token = process.env.CHANGELOG_TOKEN;
 
 const readFile = util.promisify(fs.readFile);

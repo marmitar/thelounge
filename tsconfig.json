@@ -1,11 +1,6 @@
 {
   "extends": "./tsconfig.base.json",
-  "files": [
-    "package.json",
-    // TODO: "eslint.config.mjs",
-    "prettier.config.mjs",
-    "stylelint.config.mjs"
-  ],
+  "files": ["package.json", "eslint.config.js", "prettier.config.js", "stylelint.config.js"],
   "exclude": ["node_modules", "dist"],
   "references": [
     {"path": "./client"},

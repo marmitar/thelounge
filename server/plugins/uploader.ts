@@ -1,5 +1,5 @@
 import Config from "../config.ts";
-import busboy, {type BusboyFileStream, type BusboyHeaders} from "@fastify/busboy";
+import {Busboy, type BusboyFileStream, type BusboyHeaders} from "@fastify/busboy";
 import {v4 as uuidv4} from "uuid";
 import path from "node:path";
 import fs from "node:fs";
@@ -136,7 +136,7 @@ class Uploader {
 	}
 
 	static routeUploadFile(this: void, req: Request<{token: string}>, res: Response) {
-		let busboyInstance: busboy | null | undefined;
+		let busboyInstance: Busboy | null | undefined;
 		let uploadUrl: string | URL;
 		let randomName: string;
 		let destDir: fs.PathLike;
@@ -195,7 +195,7 @@ class Uploader {
 		// create a new busboy processor, it is wrapped in try/catch
 		// because it can throw on malformed headers
 		try {
-			busboyInstance = new busboy({
+			busboyInstance = new Busboy({
 				headers: req.headers as BusboyHeaders,
 				limits: {
 					files: 1, // only allow one file per upload

@@ -1,9 +1,12 @@
-module.exports = {
+import pluginImport from "postcss-import";
+import pluginPresetEnv from "postcss-preset-env";
+import cssnano from "cssnano";
+
+export default {
 	plugins: [
-		require("postcss-import")(),
-		// @ts-ignore FIXME: ts-node can't import this on CommonJS
-		require("postcss-preset-env")(),
-		require("cssnano")({
+		pluginImport(),
+		pluginPresetEnv(),
+		cssnano({
 			preset: [
 				"default",
 				{

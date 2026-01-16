@@ -1,4 +1,4 @@
-import pkg from "../package.json";
+import pkg from "../package.json" with {type: "json"};
 import _ from "lodash";
 import path from "node:path";
 import os from "node:os";

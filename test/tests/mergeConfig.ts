@@ -1,5 +1,5 @@
 import {expect} from "chai";
-import sinon from "ts-sinon";
+import sinon from "sinon";
 
 import log from "../../server/log.ts";
 import Config from "../../server/config.ts";

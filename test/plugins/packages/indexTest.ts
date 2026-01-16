@@ -1,7 +1,7 @@
 import log from "../../../server/log.ts";
 import {expect} from "chai";
 import TestUtil from "../../util.ts";
-import sinon from "ts-sinon";
+import sinon from "sinon";
 import type packagePlugin from "../../../server/plugins/packages/index.ts";
 
 let packages: typeof packagePlugin;

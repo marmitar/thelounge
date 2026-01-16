@@ -2,7 +2,7 @@ import log from "../../../server/log.ts";
 import {expect} from "chai";
 import TestUtil from "../../util.ts";
 import Utils from "../../../server/command-line/utils.ts";
-import sinon from "ts-sinon";
+import sinon from "sinon";
 
 describe("Utils", function () {
 	describe(".extraHelp", function () {

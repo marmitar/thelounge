@@ -6,7 +6,7 @@ import io from "socket.io-client";
 import util from "./util.ts";
 import changelog from "../server/plugins/changelog.ts";
 
-import sinon from "ts-sinon";
+import sinon from "sinon";
 import type ClientManager from "../server/clientManager.ts";
 
 describe("Server", function () {
