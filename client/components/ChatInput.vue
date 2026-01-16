@@ -53,7 +53,7 @@
 </template>
 
 <script lang="ts">
-import Mousetrap from "mousetrap";
+import * as Mousetrap from "mousetrap";
 import {wrapCursor} from "undate";
 import autocompletion from "../js/autocompletion.ts";
 import {commands} from "../js/commands/index.ts";

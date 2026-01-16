@@ -39,7 +39,7 @@
 </template>
 
 <script lang="ts">
-import Mousetrap from "mousetrap";
+import * as Mousetrap from "mousetrap";
 import {computed, defineComponent, ref, watch} from "vue";
 import eventbus from "../js/eventbus.ts";
 import type {ClientChan, ClientLinkPreview} from "../js/types.ts";

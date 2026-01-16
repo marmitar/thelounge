@@ -206,7 +206,7 @@
 <script lang="ts">
 import {computed, watch, defineComponent, nextTick, onBeforeUnmount, onMounted, ref} from "vue";
 
-import Mousetrap from "mousetrap";
+import * as Mousetrap from "mousetrap";
 import Draggable from "./Draggable.vue";
 import {filter as fuzzyFilter} from "fuzzy";
 import NetworkLobby from "./NetworkLobby.vue";
@@ -221,7 +221,7 @@ import eventbus from "../js/eventbus.ts";
 import type {ClientChan, NetChan} from "../js/types.ts";
 import {useStore} from "../js/store.ts";
 import {switchToChannel} from "../js/router.ts";
-import type Sortable from "sortablejs";
+import type * as Sortable from "sortablejs";
 
 export default defineComponent({
 	name: "NetworkList",

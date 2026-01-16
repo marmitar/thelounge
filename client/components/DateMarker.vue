@@ -7,8 +7,8 @@
 </template>
 
 <script lang="ts">
-import dayjs from "dayjs";
-import calendar from "dayjs/plugin/calendar.js";
+import * as dayjs from "dayjs";
+import * as calendar from "dayjs/plugin/calendar.js";
 import {computed, defineComponent, onBeforeUnmount, onMounted, type PropType} from "vue";
 import eventbus from "../js/eventbus.ts";
 import type {ClientMessage} from "../js/types.ts";

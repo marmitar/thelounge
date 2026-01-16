@@ -1,12 +1,12 @@
 import constants from "./constants.ts";
 
-import Mousetrap from "mousetrap";
+import * as Mousetrap from "mousetrap";
 import {Textcomplete, type StrategyProps} from "@textcomplete/core";
 import {TextareaEditor} from "@textcomplete/textarea";
 
-import fuzzy from "fuzzy";
+import * as fuzzy from "fuzzy";
 
-import emojiMap from "./helpers/simplemap.json";
+import * as emojiMap from "./helpers/simplemap.json";
 import {store} from "./store.ts";
 import {ChanType} from "../../shared/types/chan.ts";
 

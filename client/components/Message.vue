@@ -99,7 +99,7 @@
 
 <script lang="ts">
 import {computed, defineComponent, type PropType} from "vue";
-import dayjs from "dayjs";
+import * as dayjs from "dayjs";
 
 import constants from "../js/constants.ts";
 import localetime from "../js/helpers/localetime.ts";

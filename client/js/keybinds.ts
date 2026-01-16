@@ -1,4 +1,4 @@
-import Mousetrap from "mousetrap";
+import * as Mousetrap from "mousetrap";
 
 import {store} from "./store.ts";
 import {switchToChannel, router, navigate} from "./router.ts";

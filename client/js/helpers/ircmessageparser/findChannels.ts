@@ -1,7 +1,7 @@
 // Escapes the RegExp special characters "^", "$", "", ".", "*", "+", "?", "(",
 // ")", "[", "]", "{", "}", and "|" in string.
 // See https://lodash.com/docs/#escapeRegExp
-import escapeRegExp from "lodash/escapeRegExp.js";
+import {escapeRegExp} from "lodash";
 import type {Part} from "./merge.ts";
 
 export type ChannelPart = Part & {

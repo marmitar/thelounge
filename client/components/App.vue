@@ -19,8 +19,8 @@
 <script lang="ts">
 import constants from "../js/constants.ts";
 import eventbus from "../js/eventbus.ts";
-import Mousetrap, {type ExtendedKeyboardEvent} from "mousetrap";
-import throttle from "lodash/throttle.js";
+import * as Mousetrap from "mousetrap";
+import {throttle, type DebouncedFunc} from "lodash";
 import storage from "../js/localStorage.ts";
 import isIgnoredKeybind from "../js/helpers/isIgnoredKeybind.ts";
 
@@ -40,7 +40,6 @@ import {
 	type InjectionKey,
 } from "vue";
 import {useStore} from "../js/store.ts";
-import type {DebouncedFunc} from "lodash";
 
 export const imageViewerKey = Symbol() as InjectionKey<Ref<typeof ImageViewer | null>>;
 const contextMenuKey = Symbol() as InjectionKey<Ref<typeof ContextMenu | null>>;
@@ -83,7 +82,7 @@ export default defineComponent({
 			eventbus.emit("escapekey");
 		};
 
-		const toggleSidebar = (e: ExtendedKeyboardEvent) => {
+		const toggleSidebar = (e: Mousetrap.ExtendedKeyboardEvent) => {
 			if (isIgnoredKeybind(e)) {
 				return true;
 			}
@@ -93,7 +92,7 @@ export default defineComponent({
 			return false;
 		};
 
-		const toggleUserList = (e: ExtendedKeyboardEvent) => {
+		const toggleUserList = (e: Mousetrap.ExtendedKeyboardEvent) => {
 			if (isIgnoredKeybind(e)) {
 				return true;
 			}

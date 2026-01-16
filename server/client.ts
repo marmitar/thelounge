@@ -1,7 +1,6 @@
 import _ from "lodash";
 import {UAParser} from "ua-parser-js";
 import {v4 as uuidv4} from "uuid";
-import escapeRegExp from "lodash/escapeRegExp.js";
 import crypto from "node:crypto";
 import colors from "chalk";
 import type WebPushAPI from "web-push";
@@ -544,7 +543,7 @@ class Client {
 			// Ensure we don't have empty strings in the list of highlights
 			const highlightsTokens = customHighlightString
 				.split(",")
-				.map((highlight) => escapeRegExp(highlight.trim()))
+				.map((highlight) => _.escapeRegExp(highlight.trim()))
 				.filter((highlight) => highlight.length > 0);
 
 			if (highlightsTokens.length === 0) {
